@@ -1,0 +1,149 @@
+# =============================================================================
+# QUERY: CAT10 - Complex multi-join queries
+# Question: Complex queries combining multiple filters and joins
+# Answer: Demonstrates advanced querying with multiple criteria and joins
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX callejero: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Residential properties built in recent years
+# Returns residential properties built since 2010
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?constructionYear ?useLabel ?parcelRef ?propertyRef WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasUse ?use ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?use a skos:Concept ;
+         skos:prefLabel "Residencial" .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    OPTIONAL {
+        ?property edintcat:hasCadastralConstruction ?construction .
+        ?construction edintcat:constructionYear ?constructionYear .
+        FILTER(?constructionYear >= "2010"^^xsd:gYear)
+    }
+}
+
+# -----------------------------------------------------------------------------
+# Query 2: Properties with Educational use in Urban classification
+# Returns educational properties classified as urban
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?useLabel ?classLabel WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasUse ?use ;
+              edintcat:hasClass ?class .
+
+    ?use a skos:Concept ;
+         skos:prefLabel "Educativo" .
+
+    ?class a skos:Concept ;
+           skos:prefLabel "Urbano" .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Constructions in specific municipality with parking use
+# Returns parking constructions in a specific municipality
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?floor ?door ?municipality WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:hasUse ?use ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door ;
+                 edintcat:onCadastralProperty ?property .
+
+    ?use a skos:Concept ;
+         skos:prefLabel "Almacenamiento/Aparcamiento" .
+
+    ?property edintcat:onCadastralParcel ?parcel .
+
+    ?parcel edintcat:hasAddress ?address .
+
+    ?address a callejero:Portal ;
+             callejero:municipio ?municipality .
+
+    FILTER(?municipality = "POZUELO DE ALARCÓN")
+}
+
+# -----------------------------------------------------------------------------
+# Query 4: Parcel summary with property and construction counts
+# Returns parcels with aggregated information
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel ?classLabel
+       (COUNT(?property) AS ?propertyCount)
+       (COUNT(?construction) AS ?constructionCount) WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasClass ?class ;
+            edintcat:hasCadastralProperty ?property ;
+            edintcat:hasCadastralProperty/^edintcat:hasCadastralConstruction ?construction .
+
+    ?class a skos:Concept ;
+           skos:prefLabel ?classLabel .
+}
+GROUP BY ?parcel ?parcelLabel ?classLabel
+
+# -----------------------------------------------------------------------------
+# Query 5: Properties with high participation (> 50%)
+# Returns properties with participation percentage greater than 50%
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation ?classLabel WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation ;
+              edintcat:hasClass ?class .
+
+    ?class a skos:Concept ;
+           skos:prefLabel ?classLabel .
+
+    FILTER(?participation > 50.0)
+}
+ORDER BY DESC(?participation)
+
+# -----------------------------------------------------------------------------
+# Query 6: Full profile: Parcel → Property → Construction with all attributes
+# Returns complete information across the three levels
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel ?property ?propertyLabel ?construction ?constructionLabel
+       ?useLabel ?classLabel ?constructionYear ?floor ?door WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasClass ?class ;
+            edintcat:hasCadastralProperty ?property .
+
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel ;
+              edintcat:hasUse ?use ;
+              edintcat:hasClass ?class ;
+              edintcat:hasCadastralConstruction ?construction .
+
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?constructionLabel ;
+                 edintcat:hasUse ?use ;
+                 edintcat:constructionYear ?constructionYear ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel .
+
+    ?class a skos:Concept ;
+           skos:prefLabel ?classLabel .
+}

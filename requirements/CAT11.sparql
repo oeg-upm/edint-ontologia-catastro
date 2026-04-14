@@ -1,0 +1,75 @@
+# =============================================================================
+# QUERY: CAT11 - How to identify construction units within a building
+# Question: ¿Cómo se identifican las unidades constructivas dentro de un edificio?
+# Answer: Las unidades constructivas se identifican mediante el triplete: escalera + planta + puerta
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Constructions with staircase, floor, and door
+# Returns all constructions with their full location identifier
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?staircase ?floor ?door WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:staircase ?staircase ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door .
+}
+
+# -----------------------------------------------------------------------------
+# Query 2: Constructions on a specific floor
+# Returns all constructions on floor "00" (ground floor)
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?staircase ?floor ?door WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:staircase ?staircase ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door .
+
+    FILTER(?floor = "00")
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Basement constructions (negative floors)
+# Returns constructions on floors -1 and -2 (basement levels)
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?staircase ?floor ?door WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:staircase ?staircase ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door .
+
+    FILTER(?floor IN ("-1", "-2"))
+}
+
+# -----------------------------------------------------------------------------
+# Query 4: Count constructions per floor
+# Returns number of constructions grouped by floor level
+# -----------------------------------------------------------------------------
+
+SELECT ?floor (COUNT(?construction) AS ?count) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:floor ?floor .
+}
+GROUP BY ?floor
+ORDER BY ?floor
+
+# -----------------------------------------------------------------------------
+# Query 5: Find specific construction by staircase/floor/door
+# Returns construction matching specific location (staircase 3, floor -2, door 01)
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:staircase "3" ;
+                 edintcat:floor "-2" ;
+                 edintcat:door "01" .
+}

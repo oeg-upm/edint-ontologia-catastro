@@ -1,0 +1,113 @@
+# =============================================================================
+# QUERY: CAT07 - How to specify location/geometry of a parcel
+# Question: ¿Cómo se especifica la ubicación/geometría de una parcela?
+# Answer: La ubicación se especifica mediante dirección (vocabulario callejero) y geometría (GeoSPARQL)
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX qudtunit: <http://qudt.org/vocab/unit/>
+PREFIX callejero: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Parcels with address information
+# Returns parcels with their complete address from callejero
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel ?streetName ?number ?postalCode
+       ?municipality ?province WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasAddress ?address .
+
+    ?address a callejero:Portal ;
+             callejero:via ?street ;
+             callejero:numero ?number ;
+             callejero:codigoPostal ?postalCode ;
+             callejero:municipio ?municipality ;
+             callejero:provincia ?province .
+
+    ?street a callejero:Via ;
+             callejero:nombreVia ?streetName .
+}
+
+# -----------------------------------------------------------------------------
+# Query 2: Parcels with geometry
+# Returns parcels with their WKT geometry
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel ?wkt WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            geo:hasGeometry ?geometry .
+
+    ?geometry geo:asWKT ?wkt .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Parcels with area measurement
+# Returns parcels with their area in m²
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel ?area WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            geo:hasGeometry ?geometry .
+
+    ?geometry geo:hasArea ?measure .
+
+    ?measure geo:measureAmount ?area ;
+             qudt:unit qudtunit:M2 .
+}
+
+# -----------------------------------------------------------------------------
+# Query 4: Properties with address
+# Returns properties with their address information
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?propertyLabel ?streetName ?number ?postalCode
+       ?municipality ?province WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel ;
+              edintcat:hasAddress ?address .
+
+    ?address a callejero:Portal ;
+             callejero:via ?street ;
+             callejero:numero ?number ;
+             callejero:codigoPostal ?postalCode ;
+             callejero:municipio ?municipality ;
+             callejero:provincia ?province .
+
+    ?street a callejero:Via ;
+             callejero:nombreVia ?streetName .
+}
+
+# -----------------------------------------------------------------------------
+# Query 5: Complete parcel profile (address + geometry + area)
+# Returns parcels with all location information
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel ?streetName ?number ?postalCode ?municipality
+       ?wkt ?area WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            geo:hasGeometry ?geometry ;
+            OPTIONAL { ?parcel edintcat:hasAddress ?address } .
+
+    ?geometry geo:asWKT ?wkt ;
+              geo:hasArea ?measure .
+
+    ?measure geo:measureAmount ?area ;
+             qudt:unit qudtunit:M2 .
+
+    OPTIONAL {
+        ?address a callejero:Portal ;
+                 callejero:via ?street ;
+                 callejero:numero ?number ;
+                 callejero:codigoPostal ?postalCode ;
+                 callejero:municipio ?municipality .
+        ?street a callejero:Via ;
+                 callejero:nombreVia ?streetName .
+    }
+}

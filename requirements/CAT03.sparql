@@ -1,0 +1,94 @@
+# =============================================================================
+# QUERY: CAT03 - What information does a cadastral property contain
+# Question: ¿Qué información contiene un inmueble catastral?
+# Answer: Un inmueble catastral contiene: referencia catastral, porcentaje de participación, uso, clasificación, y opcionalmente dirección
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX callejero: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Basic - All property information
+# Returns all properties with their main attributes
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation ?parcelRef ?propertyRef WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+}
+
+# -----------------------------------------------------------------------------
+# Query 2: Properties with use and classification
+# Returns properties with their use (KOS) and class (KOS)
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?use ?class ?participation WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasUse ?use ;
+              edintcat:hasClass ?class ;
+              edintcat:participation ?participation .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel .
+
+    ?class a skos:Concept ;
+           skos:prefLabel ?classLabel .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Properties with address information
+# Returns properties with their complete address from callejero
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?street ?number ?postalCode ?municipality ?province WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasAddress ?address .
+
+    ?address a callejero:Portal ;
+             callejero:via ?street ;
+             callejero:numero ?number ;
+             callejero:codigoPostal ?postalCode ;
+             callejero:municipio ?municipality ;
+             callejero:provincia ?province .
+
+    ?street a callejero:Via ;
+             callejero:nombreVia ?streetName .
+}
+
+# -----------------------------------------------------------------------------
+# Query 4: Complete property profile
+# Returns all available information for a specific property
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation ?useLabel ?classLabel
+       ?parcelRef ?propertyRef ?streetName ?number ?postalCode WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation ;
+              edintcat:hasUse ?use ;
+              edintcat:hasClass ?class ;
+              edintcat:hasCadastralReference ?ref ;
+              OPTIONAL { ?property edintcat:hasAddress ?address } .
+
+    ?use skos:prefLabel ?useLabel .
+    ?class skos:prefLabel ?classLabel .
+
+    ?ref edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    OPTIONAL {
+        ?address callejero:numero ?number ;
+                 callejero:codigoPostal ?postalCode ;
+                 callejero:via ?street .
+        ?street callejero:nombreVia ?streetName .
+    }
+}

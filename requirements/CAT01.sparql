@@ -1,0 +1,51 @@
+# =============================================================================
+# QUERY: CAT01 - How to identify a cadastral parcel
+# Question: ¿Cómo se identifica una parcela catastral?
+# Answer: Una parcela catastral se identifica mediante una referencia catastral única compuesta por 14 caracteres (7 dígitos de parcela + 7 dígitos de inmueble)
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Basic - Find all cadastral parcels
+# Returns all parcels with their cadastral references
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelRef ?propertyRef WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+}
+
+# -----------------------------------------------------------------------------
+# Query 2: Filter by specific parcel reference
+# Returns parcels matching a specific 7-digit parcel reference
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?propertyRef WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference "0569302" ;
+         edintcat:propertyReference ?propertyRef .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Complete cadastral reference format
+# Returns parcels with formatted complete reference (parcel + property)
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelRef ?propertyRef ?completeRef WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    BIND(CONCAT(?parcelRef, ?propertyRef) AS ?completeRef)
+}

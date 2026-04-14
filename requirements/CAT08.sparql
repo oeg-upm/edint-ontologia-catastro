@@ -1,0 +1,96 @@
+# =============================================================================
+# QUERY: CAT08 - What cadastral reference does a property have
+# Question: ¿Qué referencia catastral tiene un inmueble?
+# Answer: Cada inmueble tiene una referencia catastral única compuesta por referencia de parcela (7 dígitos) y referencia de inmueble (alfanumérico con dígito de control)
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Properties with complete cadastral reference
+# Returns properties with their parcel and property references
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?parcelRef ?propertyRef ?completeRef WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    BIND(CONCAT(?parcelRef, ?propertyRef) AS ?completeRef)
+}
+
+# -----------------------------------------------------------------------------
+# Query 2: Find property by complete cadastral reference
+# Returns properties matching a specific 14-character reference
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?parcelRef ?propertyRef WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    BIND(CONCAT(?parcelRef, ?propertyRef) AS ?completeRef)
+
+    FILTER(?completeRef = "8942103VK2793S0001UO")
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Properties by parcel reference prefix
+# Returns all properties on a specific parcel (first 7 digits)
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?parcelRef ?propertyRef ?completeRef WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    BIND(CONCAT(?parcelRef, ?propertyRef) AS ?completeRef)
+
+    FILTER(STRSTARTS(?completeRef, "8942103VK2793"))
+}
+
+# -----------------------------------------------------------------------------
+# Query 4: Count properties per parcel reference
+# Returns parcel references and number of associated properties
+# -----------------------------------------------------------------------------
+
+SELECT ?parcelRef (COUNT(?property) AS ?propertyCount) WHERE {
+    ?property a edintcat:CadastralProperty ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+}
+GROUP BY ?parcelRef
+ORDER BY DESC(?propertyCount)
+
+# -----------------------------------------------------------------------------
+# Query 5: Complete cadastral reference with property participation
+# Returns properties with reference and participation percentage
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?parcelRef ?propertyRef ?completeRef ?participation WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    BIND(CONCAT(?parcelRef, ?propertyRef) AS ?completeRef)
+}

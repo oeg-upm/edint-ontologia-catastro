@@ -1,0 +1,87 @@
+# =============================================================================
+# QUERY: CAT05 - What uses can a property have
+# Question: ¿Qué usos puede tener un inmueble?
+# Answer: Los inmuebles pueden tener diferentes usos según el vocabulario KOS de EDINT: Residencial, Comercial, Industrial, etc.
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Properties by use type
+# Returns properties grouped by their use category
+# -----------------------------------------------------------------------------
+
+SELECT ?useLabel (COUNT(?property) AS ?count) WHERE {
+    ?property a edintcat:CadastralProperty ;
+              edintcat:hasUse ?use .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel .
+}
+GROUP BY ?useLabel
+ORDER BY DESC(?count)
+
+# -----------------------------------------------------------------------------
+# Query 2: Properties with a specific use
+# Returns properties with "Residential" use
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasUse ?use ;
+              edintcat:participation ?participation .
+
+    ?use a skos:Concept ;
+         skos:prefLabel "Residencial" .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Filter by multiple use types
+# Returns properties with Residential, Commercial, or Educational use
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?useLabel ?participation WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasUse ?use ;
+              edintcat:participation ?participation .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel .
+
+    FILTER(?useLabel IN ("Residencial", "Comercial", "Educativo"))
+}
+
+# -----------------------------------------------------------------------------
+# Query 4: Constructions by use type
+# Returns constructions grouped by their use category
+# -----------------------------------------------------------------------------
+
+SELECT ?useLabel (COUNT(?construction) AS ?count) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:hasUse ?use .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel .
+}
+GROUP BY ?useLabel
+ORDER BY DESC(?count)
+
+# -----------------------------------------------------------------------------
+# Query 5: All properties with complete use information
+# Returns properties with use labels and their KOS URI
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?use ?useLabel ?schemeLabel WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasUse ?use .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel ;
+         skos:inScheme ?scheme .
+
+    ?scheme rdfs:label ?schemeLabel .
+}
