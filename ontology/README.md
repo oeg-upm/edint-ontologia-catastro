@@ -15,6 +15,18 @@ Estos archivos se utilizan típicamente para:
 
 
 # Contenidos
+
+## Ontologías implementadas
+
+### 1. Catastro (`catastro.ttl`)
+
+- **URI**: `https://edint.github.io/edint-ontologia-catastro/ontology/catastro`
+- **Prefijo**: `edintcat:`
+- **Versión**: 0.1.0
+- **Descripción**: Ontología para modelar las entidades del Catastro Español, centrada en Parcelas, Inmuebles y Construcciones.
+- **Clases principales**: `edintcat:CadastralParcel`, `edintcat:CadastralProperty`, `edintcat:CadastralConstruction`, `edintcat:CadastralReference`, `edintcat:Renovation`
+- **Importaciones**: GeoSPARQL, Time Ontology, Callejero (vocabulario español), vocabularios SKOS (uso, estado, clase)
+
 Incluya aquí cualquier archivo que representen la implementación de la ontología, como por ejemplo
 
 - `.owl` — Ficheros siguiendo el Ontology Web Language   

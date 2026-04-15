@@ -8,6 +8,15 @@ El objetivo de este directorio es almacenar **materiales gráficos** que apoyen 
 
 # Contenidos
 
+## Diagramas
+
+### Diagrama del modelo conceptual (`diagrama-catastro.drawio`)
+
+- **Formato**: draw.io (editable) y PNG (visualización)
+- **Descripción**: Diagrama que muestra las clases principales de la ontología del Catastro Español y sus relaciones.
+- **Clases mostradas**: CadastralParcel, CadastralProperty, CadastralConstruction, CadastralReference, Renovation
+- **Relaciones**: hasListing, refersToCadastralEntity, y otras propiedades objetivas
+
 Incluya cualquier archivo que represente o respalde el modelo conceptual de la ontología, como por ejemplo:
 
 - **Diagramas** ilustraciones de clases, relaciones y jerarquías. 
