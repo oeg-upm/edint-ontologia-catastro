@@ -9,29 +9,6 @@
 @prefix edintkos-use: <http://vocab.linkeddata.es/datosabiertos/kos/edint/uso/> .
 
 # =============================================================================
-# ONTOLOGY METADATA
-# =============================================================================
-
-<http://vocab.linkeddata.es/datosabiertos/kos/edint/uso> a owl:Ontology ;
-    owl:versionIRI <http://vocab.linkeddata.es/datosabiertos/kos/edint/uso/0.1.1> ;
-    owl:versionInfo "0.1.1" ;
-    dct:title "Controlled Vocabulary of Uses for Spanish Cadastre"@en ;
-    dct:title "Vocabulario Controlado de Usos para el Catastro Español"@es ;
-    dct:description "SKOS concept scheme defining the legally mandated vocabulary of property and construction uses in the Spanish Cadastre system according to RD 1020/1993."@en ;
-    dct:description "Esquema de conceptos SKOS que define el vocabulario de usos de inmuebles y construcciones obligatorio por ley en el sistema del Catastro Español según el RD 1020/1993."@es ;
-    dct:issued "2026-04-13"^^xsd:date ;
-    dct:modified "2026-04-13"^^xsd:date ;
-    dct:creator "Daniel Doña"@es ,
-                "Edna Ruckhaus" ,
-                "Lucía Sánchez" ,
-                "Maria del Socorro Bernardos" ,
-                "Oscar Corcho" ;
-    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dct:source <https://www.boe.es/buscar/act.php?id=BOE-A-1993-19265> ;
-    skos:note "Values strictly aligned with the Spanish Real Decreto 1020/1993 (Anexo - Cuadro 1) and standard Cadastral encoding codes."@en ;
-    skos:note "Valores estrictamente alineados con el Real Decreto 1020/1993 (Anexo - Cuadro 1) y los códigos estándar de codificación catastral."@es .
-
-# =============================================================================
 # CONCEPT SCHEME
 # =============================================================================
 
