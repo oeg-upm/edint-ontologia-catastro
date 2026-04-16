@@ -4,7 +4,7 @@
 # Answer: Las unidades constructivas se identifican mediante el triplete: escalera + planta + puerta
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 
 # -----------------------------------------------------------------------------
 # Query 1: Constructions with staircase, floor, and door

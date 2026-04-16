@@ -4,7 +4,7 @@
 # Answer: El porcentaje de participación indica qué parte de los elementos comunes corresponde a un inmueble (ej: 100.00)
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 
 # -----------------------------------------------------------------------------
 # Query 1: Properties with their participation percentage

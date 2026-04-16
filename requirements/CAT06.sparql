@@ -4,7 +4,7 @@
 # Answer: Los inmuebles se clasifican según el vocabulario KOS de EDINT en: Urbano, Rústico, o especial BICES
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 # -----------------------------------------------------------------------------

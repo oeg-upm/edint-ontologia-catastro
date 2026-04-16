@@ -1,0 +1,714 @@
+<h2 id="crossreference" class="list">Cross-reference for catastro classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by catastro.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a></li>
+  <li><a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Cadastral Parcel</a></li>
+  <li><a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a></li>
+  <li><a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Cadastral Reference</a></li>
+  <li><a href="#Renovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation">Renovation</a></li>
+ </ul>
+ <div class="entity" id="CadastralConstruction">
+  <h3>Cadastral Construction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction</p>
+  <div class="comment">
+   <span class="markdown">Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction can be associated with one or more cadastral properties.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.opengis.net/ont/geosparql#Feature" target="_blank" title="http://www.opengis.net/ont/geosparql#Feature">Feature</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#constructionYear" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/constructionYear">construction year</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#door" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/door">door</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#floor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/floor">floor</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasHorizontalDivision" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision">has horizontal division</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRenovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation">has renovation</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasUse" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse">has use</a> <sup class="type-op" title="object property">op</sup>, <a href="#onCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty">on cadastral property</a> <sup class="type-op" title="object property">op</sup>, <a href="#staircase" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/staircase">staircase</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#supportPercentage" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage">support percentage</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasCadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">has cadastral construction</a> <sup class="type-op" title="object property">op</sup>, <a href="#renovationOf" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf">renovation of</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CadastralParcel">
+  <h3>Cadastral Parcel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel</p>
+  <div class="comment">
+   <span class="markdown">Basic unit of territorial division in the Spanish Cadastre. Represents a plot of land delimited geographically, which may contain one or more properties.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.opengis.net/ont/geosparql#Feature" target="_blank" title="http://www.opengis.net/ont/geosparql#Feature">Feature</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasAddress" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress">has address</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">has cadastral property</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">has cadastral reference</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasClass" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass">has class</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasHorizontalDivision" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision">has horizontal division</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">on cadastral parcel</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CadastralProperty">
+  <h3>Cadastral Property<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty</p>
+  <div class="comment">
+   <span class="markdown">Real estate property registered in the Cadastre. Can be a premises, dwelling, or any independent use unit within a parcel. A cadastral property may have one or more constructions associated.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.opengis.net/ont/geosparql#Feature" target="_blank" title="http://www.opengis.net/ont/geosparql#Feature">Feature</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasAddress" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress">has address</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">has cadastral construction</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">has cadastral reference</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasClass" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass">has class</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasUse" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse">has use</a> <sup class="type-op" title="object property">op</sup>, <a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">on cadastral parcel</a> <sup class="type-op" title="object property">op</sup>, <a href="#participation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/participation">participation</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">has cadastral property</a> <sup class="type-op" title="object property">op</sup>, <a href="#onCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty">on cadastral property</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CadastralReference">
+  <h3>Cadastral Reference<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference</p>
+  <div class="comment">
+   <span class="markdown">Complete cadastral reference composed of parcel reference and property reference.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#parcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference">parcel reference</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#propertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference">property reference</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasCadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">has cadastral reference</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Renovation">
+  <h3>Renovation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation</p>
+  <div class="comment">
+   <span class="markdown">Event or process of renovating a construction, including information about when it occurred and what type of renovation was performed.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#renovationDate" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationDate">renovation date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#renovationOf" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf">renovation of</a> <sup class="type-op" title="object property">op</sup>, <a href="#renovationType" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationType">renovation type</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasRenovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation">has renovation</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasAddress" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress">has address</a></li>
+  <li><a href="#hasCadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">has cadastral construction</a></li>
+  <li><a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">has cadastral property</a></li>
+  <li><a href="#hasCadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">has cadastral reference</a></li>
+  <li><a href="#hasClass" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass">has class</a></li>
+  <li><a href="#hasRenovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation">has renovation</a></li>
+  <li><a href="#hasUse" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse">has use</a></li>
+  <li><a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">on cadastral parcel</a></li>
+  <li><a href="#onCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty">on cadastral property</a></li>
+  <li><a href="#renovationOf" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf">renovation of</a></li>
+ </ul>
+ <div class="entity" id="hasAddress">
+  <h3>has address<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress</p>
+  <div class="comment">
+   <span class="markdown">Relationship linking a property or parcel to its address in the callejero vocabulary. Through this relationship, location information (municipality, province, postal code) can be obtained from the linked callejero:Portal.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero">http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Cadastral Parcel</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#Portal" target="_blank" title="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#Portal">Portal</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCadastralConstruction">
+  <h3>has cadastral construction<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction</p>
+  <div class="comment">
+   <span class="markdown">Relationship indicating the specific constructive units (locales/parts) that make up a cadastral property.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#onCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty">on cadastral property</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCadastralProperty">
+  <h3>has cadastral property<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty</p>
+  <div class="comment">
+   <span class="markdown">Relationship indicating that a cadastral parcel contains one or more cadastral properties (e.g., flats in a horizontal division).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Cadastral Parcel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">on cadastral parcel</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCadastralReference">
+  <h3>has cadastral reference<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference</p>
+  <div class="comment">
+   <span class="markdown">Relationship linking a cadastral entity to its complete cadastral reference.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Cadastral Parcel</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Cadastral Reference</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasClass">
+  <h3>has class<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass</p>
+  <div class="comment">
+   <span class="markdown">Relationship that assigns a classification (urban/rural) to a parcel or property. Classification concepts are defined in external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Cadastral Parcel</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRenovation">
+  <h3>has renovation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation</p>
+  <div class="comment">
+   <span class="markdown">Relationship indicating that a construction has undergone one or more renovation events.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Renovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation">Renovation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#renovationOf" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf">renovation of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasUse">
+  <h3>has use<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse</p>
+  <div class="comment">
+   <span class="markdown">Relationship that assigns a primary use to a property or construction. Use concepts are defined in the external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2004/02/skos/core#Concept" target="_blank" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="onCadastralParcel">
+  <h3>on cadastral parcel<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel</p>
+  <div class="comment">
+   <span class="markdown">Relationship indicating that a cadastral property is located on a specific cadastral parcel.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Cadastral Parcel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">has cadastral property</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="onCadastralProperty">
+  <h3>on cadastral property<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty</p>
+  <div class="comment">
+   <span class="markdown">Relationship indicating that a cadastral construction is located on a specific cadastral property.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasCadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">has cadastral construction</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="renovationOf">
+  <h3>renovation of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf</p>
+  <div class="comment">
+   <span class="markdown">Relationship indicating that a renovation event applies to a specific construction.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Renovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation">Renovation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasRenovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation">has renovation</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#constructionYear" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/constructionYear">construction year</a></li>
+  <li><a href="#door" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/door">door</a></li>
+  <li><a href="#floor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/floor">floor</a></li>
+  <li><a href="#hasHorizontalDivision" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision">has horizontal division</a></li>
+  <li><a href="#parcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference">parcel reference</a></li>
+  <li><a href="#participation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/participation">participation</a></li>
+  <li><a href="#propertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference">property reference</a></li>
+  <li><a href="#renovationDate" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationDate">renovation date</a></li>
+  <li><a href="#renovationType" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationType">renovation type</a></li>
+  <li><a href="#staircase" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/staircase">staircase</a></li>
+  <li><a href="#supportPercentage" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage">support percentage</a></li>
+ </ul>
+ <div class="entity" id="constructionYear">
+  <h3>construction year<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/constructionYear</p>
+  <div class="comment">
+   <span class="markdown">Year in which the building was constructed.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#gYear" target="_blank" title="http://www.w3.org/2001/XMLSchema#gYear">g Year</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="door">
+  <h3>door<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/door</p>
+  <div class="comment">
+   <span class="markdown">Door or unit identifier within a floor and staircase.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="floor">
+  <h3>floor<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/floor</p>
+  <div class="comment">
+   <span class="markdown">Floor level identifier for a construction unit (can include basement levels like -1, -2).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasHorizontalDivision">
+  <h3>has horizontal division<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision</p>
+  <div class="comment">
+   <span class="markdown">Boolean indicating whether a parcel or construction is subject to horizontal division regime.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Cadastral Parcel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="parcelReference">
+  <h3>parcel reference<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference</p>
+  <div class="comment">
+   <span class="markdown">The 7-digit parcel reference part. Format: 7 digits (e.g., 0569302).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://www.sedecatro.gob.es">https://www.sedecatro.gob.es</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Cadastral Reference</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="participation">
+  <h3>participation<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/participation</p>
+  <div class="comment">
+   <span class="markdown">Percentage of participation in common elements of the parcel or construction.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Cadastral Property</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="propertyReference">
+  <h3>property reference<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference</p>
+  <div class="comment">
+   <span class="markdown">The property reference part including check digit. Format: alphanumeric with check (e.g., TF8006N0001HZ).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://www.sedecatastro.gob.es">https://www.sedecatastro.gob.es</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Cadastral Reference</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="renovationDate">
+  <h3>renovation date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationDate</p>
+  <div class="comment">
+   <span class="markdown">Date when the renovation was performed.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Renovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation">Renovation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="renovationType">
+  <h3>renovation type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationType</p>
+  <div class="comment">
+   <span class="markdown">Type of renovation performed.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Renovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation">Renovation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="staircase">
+  <h3>staircase<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/staircase</p>
+  <div class="comment">
+   <span class="markdown">Staircase identifier for a construction unit within a building.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="supportPercentage">
+  <h3>support percentage<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage</p>
+  <div class="comment">
+   <span class="markdown">Percentage of the construction area that is considered support area (common elements).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">Cadastral Construction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>

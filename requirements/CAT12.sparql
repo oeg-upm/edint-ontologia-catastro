@@ -4,7 +4,7 @@
 # Answer: Las construcciones tienen un área medida en metros cuadrados (m²) utilizando GeoSPARQL
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX qudtunit: <http://qudt.org/vocab/unit/>

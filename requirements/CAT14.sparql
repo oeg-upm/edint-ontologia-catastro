@@ -4,7 +4,7 @@
 # Answer: Sí, un inmueble puede tener múltiples construcciones asociadas
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 
 # -----------------------------------------------------------------------------
 # Query 1: Properties with multiple constructions

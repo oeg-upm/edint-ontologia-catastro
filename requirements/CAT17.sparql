@@ -4,7 +4,7 @@
 # Answer: Las reformas se registran como instancias de Renovation, vinculadas a una construcción con tipo y fecha
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 # -----------------------------------------------------------------------------

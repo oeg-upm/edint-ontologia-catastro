@@ -10,7 +10,7 @@
 @prefix callejero: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#> .
 @prefix edintkos-uso: <http://vocab.linkeddata.es/datosabiertos/kos/edint/uso/> .
 @prefix edintkos-clase: <http://vocab.linkeddata.es/datosabiertos/kos/edint/clase/> .
-@prefix catastro: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#> .
+@prefix catastro: <http://vocab.linkeddata.es/datosabiertos/def/catastro/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix qudtunit: <http://qudt.org/vocab/unit/> .
 

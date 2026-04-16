@@ -4,7 +4,7 @@
 # Answer: Sí, una parcela puede tener múltiples inmuebles catastrales asociados (común en división horizontal)
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 
 # -----------------------------------------------------------------------------
 # Query 1: Parcels with multiple properties (horizontal division)
