@@ -41,9 +41,9 @@ SELECT ?construction ?constructionLabel ?property ?propertyLabel
     ?parcelRefObj a edintcat:CadastralReference ;
                   edintcat:parcelReference "0569302" .
 
-    ?construction rdfs:label ?constructionLabel ;
-                 ?property rdfs:label ?propertyLabel .
-}
+    ?construction rdfs:label ?constructionLabel .
+    ?property rdfs:label ?propertyLabel .
+    }
 
 # -----------------------------------------------------------------------------
 # Query 3: Count constructions per parcel
