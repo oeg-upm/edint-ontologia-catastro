@@ -1,5 +1,106 @@
 <h2 id="desc" class="list">catastro: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 
-<span class="markdown">This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.
+<div style="padding: 25px; background-color: white; width: 100%; box-sizing: border-box; overflow: hidden;">
+    <a href="images/diagram.png" target="_blank" style="display: block;">
+        <img src="images/diagram.png" style="width: 100%; height: auto; display: block;"/>
+    </a>
+</div>
 
-</span>
+<p>As shown in Figure 1, there are three main concepts in the ontology: <a href="#CadastralParcel">Cadastral Parcel</a>, <a href="#CadastralProperty">Cadastral Property</a> and <a href="#CadastralConstruction">Cadastral Construction</a>, which form a hierarchical relationship.</p>
+
+<p>The class <a href="#CadastralParcel">Cadastral Parcel</a> represents the basic territorial division unit in the Spanish Cadastre. It is a geographically delimited piece of land that may contain one or more cadastral properties. This class inherits from <a href="http://www.opengis.net/ont/geosparql#Feature" target="_blank">GeoSPARQL Feature</a>, providing geospatial capabilities. Each parcel has an associated <a href="#CadastralReference">Cadastral Reference</a> (mandatory), an <a href="#hasAddress">address</a> through the callejero vocabulary, and a <a href="#hasClass">classification</a> (urban/rural) defined in the external SKOS vocabulary of <a href="http://vocab.linkeddata.es/datosabiertos/kos/edint/clase/" target="_blank">land classification</a>.</p>
+
+<p>The class <a href="#CadastralProperty">Cadastral Property</a> represents a real estate property registered in the Cadastre, which can be a premises, dwelling, or any independent use unit within a parcel. A cadastral property may have one or more <a href="#CadastralConstruction">Cadastral Constructions</a> associated. Like the parcel, it inherits from GeoSPARQL Feature and has an associated mandatory <a href="#CadastralReference">Cadastral Reference</a>. Additionally, it is characterized by properties such as its <a href="#participation">participation percentage</a> in common elements, its <a href="#hasAddress">address</a>, its <a href="#hasUse">primary use</a> (defined in the SKOS vocabulary of <a href="http://vocab.linkeddata.es/datosabiertos/kos/edint/uso/" target="_blank">uses</a>), and whether it is subject to <a href="#hasHorizontalDivision">horizontal division</a>.</p>
+
+<p>The class <a href="#CadastralConstruction">Cadastral Construction</a> represents a building or construction registered on a cadastral property. It includes data on area, use, construction characteristics, and renovations. A cadastral construction may be associated with one or more cadastral properties, and inherits from GeoSPARQL Feature. It is described with properties such as its <a href="#constructionYear">construction year</a>, <a href="#hasUse">primary use</a>, <a href="#floor">floor</a>, <a href="#staircase">staircase</a>, <a href="#door">door</a>, <a href="#supportPercentage">support percentage</a>, and <a href="#hasHorizontalDivision">horizontal division</a>. Additionally, it may have undergone one or more <a href="#hasRenovation">renovations</a>, represented by the <a href="#Renovation">Renovation</a> class.</p>
+
+<p>The class <a href="#CadastralReference">Cadastral Reference</a> represents the complete unique reference of a cadastral entity, composed of the <a href="#parcelReference">parcel reference</a> (alphanumeric, 12 characters) and the <a href="#propertyReference">property reference</a> (alphanumeric with check digit), following the official format of the <a href="https://www.sedecatastro.gob.es" target="_blank">Ministry of Finance</a>.</p>
+
+<p>The class <a href="#Renovation">Renovation</a> models renovation events for a construction, including the <a href="#renovationDate">date</a> when it occurred and the <a href="#renovationType">type of renovation</a> performed. These renovations are linked to the corresponding <a href="#CadastralConstruction">Cadastral Construction</a> via the <a href="#hasRenovation">has renovation</a> relationship.</p>
+
+<p>Below we show a simplified RDF example, using RDF Turtle notation and based on the real example from <a href="https://www.sedecatastro.gob.es" target="_blank">sedecatastro.gob.es</a> (reference <code>8942103VK2793</code>, Calle Badajoz 348, Pozuelo de Alarc&oacute;n), showing the hierarchical relationship between <a href="#CadastralParcel">Cadastral Parcel</a> &rarr; <a href="#CadastralProperty">Cadastral Property</a> &rarr; <a href="#CadastralConstruction">Cadastral Construction</a>.</p>
+
+<pre>
+    <textarea style="resize:none" readonly id="code1" name="code" rows="35" cols="150">
+@prefix ex: &lt;https://edint.github.io/edint-ontologia-inmuebles/examples#&gt; .
+@prefix edintcat: &lt;http://vocab.linkeddata.es/datosabiertos/def/catastro#&gt; .
+@prefix callejero: &lt;http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#&gt; .
+@prefix edintkos-clase: &lt;http://vocab.linkeddata.es/datosabiertos/kos/edint/clase/&gt; .
+@prefix edintkos-uso: &lt;http://vocab.linkeddata.es/datosabiertos/kos/edint/uso/&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+# ---------------------------------------------------------------------------
+# CADASTRAL PARCEL
+# ---------------------------------------------------------------------------
+
+ex:Parcel_8942103VK2793
+    a edintcat:CadastralParcel ;
+    rdfs:label "Parcel 8942103VK2793"@en ;
+    edintcat:hasCadastralReference ex:Ref_Cadastral_Parcel ;
+    edintcat:hasCadastralProperty ex:Property_0001UO ;
+    edintcat:hasClass edintkos-clase:Urban .
+
+# ---------------------------------------------------------------------------
+# CADASTRAL PROPERTY
+# ---------------------------------------------------------------------------
+
+ex:Property_0001UO
+    a edintcat:CadastralProperty ;
+    rdfs:label "Cadastral Property 0001UO"@en ;
+    edintcat:hasCadastralReference ex:Ref_Cadastral_Property ;
+    edintcat:onCadastralParcel ex:Parcel_8942103VK2793 ;
+    edintcat:participation "100.00"^^xsd:decimal ;
+    edintcat:hasUse edintkos-uso:Cultural ;
+    edintcat:hasClass edintkos-clase:Urban ;
+    edintcat:hasAddress ex:Portal_348B ;
+    edintcat:hasCadastralConstruction ex:Construction_3_n2_01 .
+
+# ---------------------------------------------------------------------------
+# CADASTRAL CONSTRUCTION
+# ---------------------------------------------------------------------------
+
+ex:Construction_3_n2_01
+    a edintcat:CadastralConstruction ;
+    rdfs:label "STORAGE 3/-2/01"@en ;
+    edintcat:constructionYear "2012"^^xsd:gYear ;
+    edintcat:hasUse edintkos-uso:StorageParking ;
+    edintcat:onCadastralProperty ex:Property_0001UO ;
+    edintcat:staircase "3" ;
+    edintcat:floor "-2" ;
+    edintcat:door "01" .
+
+# ---------------------------------------------------------------------------
+# CADASTRAL REFERENCES
+# ---------------------------------------------------------------------------
+
+ex:Ref_Cadastral_Parcel
+    a edintcat:CadastralReference ;
+    edintcat:parcelReference "8942103VK2793" .
+
+ex:Ref_Cadastral_Property
+    a edintcat:CadastralReference ;
+    edintcat:parcelReference "8942103VK2793" ;
+    edintcat:propertyReference "0001UO" .
+
+# ---------------------------------------------------------------------------
+# ADDRESS (callejero vocabulary)
+# ---------------------------------------------------------------------------
+
+ex:Portal_348B
+    a callejero:Portal ;
+    callejero:number "348" ;
+    callejero:postalCode "28223" ;
+    callejero:municipality "POZUELO DE ALARCON" ;
+    callejero:province "MADRID" .
+
+    </textarea>
+</pre>
+
+<script>
+    var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
+        mode: "text/turtle",
+        matchBrackets: true
+    });
+
+</script>

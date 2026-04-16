@@ -48,7 +48,7 @@ SELECT ?property ?label ?use ?class ?participation WHERE {
 # Returns properties with their complete address from callejero
 # -----------------------------------------------------------------------------
 
-SELECT ?property ?label ?street ?number ?postalCode ?municipality ?province WHERE {
+SELECT ?property ?label ?streetName ?number ?postalCode ?municipality ?province WHERE {
     ?property a edintcat:CadastralProperty ;
               rdfs:label ?label ;
               edintcat:hasAddress ?address .
@@ -62,7 +62,7 @@ SELECT ?property ?label ?street ?number ?postalCode ?municipality ?province WHER
 
     ?street a callejero:Via ;
              callejero:nombreVia ?streetName .
-}
+    }
 
 # -----------------------------------------------------------------------------
 # Query 4: Complete property profile

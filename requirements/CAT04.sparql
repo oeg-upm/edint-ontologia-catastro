@@ -41,9 +41,9 @@ SELECT ?construction ?constructionLabel ?property ?propertyLabel
     ?parcelRefObj a edintcat:CadastralReference ;
                   edintcat:parcelReference "0569302" .
 
-    ?construction rdfs:label ?constructionLabel ;
-                 ?property rdfs:label ?propertyLabel .
-}
+    ?construction rdfs:label ?constructionLabel .
+    ?property rdfs:label ?propertyLabel .
+    }
 
 # -----------------------------------------------------------------------------
 # Query 3: Count constructions per parcel
@@ -75,8 +75,6 @@ SELECT ?construction ?property ?parcel ?parcelRef ?propertyRef WHERE {
 
     ?propRef edintcat:parcelReference ?parcelRefStr ;
              edintcat:propertyReference ?propertyRefStr .
-
-    ?parcelRef edintcat:parcelReference ?parcelRefStr .
 
     BIND(?parcelRefStr AS ?parcelRef)
     BIND(?propertyRefStr AS ?propertyRef)

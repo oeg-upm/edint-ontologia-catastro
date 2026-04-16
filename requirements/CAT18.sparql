@@ -5,6 +5,7 @@
 # =============================================================================
 
 PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 # -----------------------------------------------------------------------------
 # Query 1: Constructions with their associated properties
