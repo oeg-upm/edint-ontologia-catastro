@@ -76,8 +76,6 @@ SELECT ?construction ?property ?parcel ?parcelRef ?propertyRef WHERE {
     ?propRef edintcat:parcelReference ?parcelRefStr ;
              edintcat:propertyReference ?propertyRefStr .
 
-    ?parcelRef edintcat:parcelReference ?parcelRefStr .
-
     BIND(?parcelRefStr AS ?parcelRef)
     BIND(?propertyRefStr AS ?propertyRef)
 }
