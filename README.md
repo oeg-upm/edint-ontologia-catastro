@@ -1,47 +1,44 @@
-# Ontología EDINT XXX (EDINT XXX Ontology)
+# Ontología para la representación del Catastro Inmobiliario Español
 
-La ontología XXX representa el dominio ABC.
+Esta ontología permite representar el dominio del Catastro Inmobiliario Español, centrada en parcelas catastrales, inmuebles catastrales y construcciones catastrales.
 
-# Propósito y alcance de la ontología (Purpose and scope of the ontology)
+Está siendo desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es/)).
 
-El propósito de la ontología XXX es YYYY. 
-El alcance de la ontología XXX está limitado a ZZZZ.
+# Propósito y alcance de la ontología
 
-# Prefijo y espacio de nombres (Prefix and namespace)
+El propósito de esta ontología es modelar las entidades y relaciones fundamentales del Catastro Inmobiliario Español para habilitar la interoperabilidad de datos catastrales en el contexto de los datos enlazados (Linked Data). El alcance se limita a parcelas catastrales, inmuebles catastrales, construcciones catastrales, referencias catastrales, direcciones, usos y clasificaciones, y geometrías y áreas. Quedan fuera del alcance aspectos como titularidad de bienes, valoración catastral, datos de transmisiones y procesos administrativos.
 
-El prefijo de la ontología es: `XXX` y se encuentra publicada en el espacio de nombres: [http://vocab.linkeddata.es/datosabiertos/def/xxx/](http://vocab.linkeddata.es/datosabiertos/def/xxx/)
+# Prefijo y espacio de nombres
 
-# Modelo conceptual (Ontology conceptualization)
+El prefijo de esta ontología es `edintcat`. Se publica en el espacio de nombres: http://vocab.linkeddata.es/datosabiertos/def/catastro/
 
-Cada repositorio de desarrollo de ontologías debe incluir, en este README principal, una representación visual de la conceptualización de la ontología.
-Esta imagen ayuda a los usuarios y colaboradores a comprender rápidamente la estructura de la ontología, sus conceptos clave y las relaciones entre ellos.
+# Modelo conceptual
 
-- La imagen debe estar ubicada en la carpeta de conceptualización.
-- Formatos aceptados: .svg, .png o .drawio.
-- Debe referenciarse en este README usando la sintaxis de Markdown, por ejemplo:
+![Diagrama del modelo conceptual](diagrams/diagrama-catastro.drawio.png)
 
-![Diagrama del modelo conceptual](diagrams/diagrama.png)
+# Estructura del repositorio
 
-# Estructura del repositorio (Repository structure)
+El repositorio contiene las siguientes carpetas:
 
-El repositorio debe contener (al menos) las siguientes carpetas
-
-| Carpeta | Descripción |
+| Folder | Description |
 |--------|--------------|
-| **diagrams/** | Contiene diagramas y otros recursos que representan el modelo conceptual de la ontología (por ejemplo, jerarquías de clases, relaciones). |
-| **documentation/** | Contiene la documentación de la ontología y artefactos relacionados en formato HTML o dirigida a usuarios. |
-| **tests/** | Contiene las pruebas para la evaluación de la ontología. |
-| **kos/** | Contiene la implementación de vocabularios controlados o KOS, generalmente implementaciones SKOS en RDF.|
-| **ontology/** | Contiene los archivos de implementación de la ontología en formatos como .owl, .rdf, .ttl o .jsonld |
-| **requirements/** | Contiene todos los documentos utilizados para definir los requisitos de la ontología: ejemplos de datos, preguntas de competencia, requisitos funcionales, casos de uso, etc. |
-| **shapes/** | Contiene las restricciones SHACL utilizad para validar datos respecto a la ontología.  |
+| **diagrams/** | Stores diagrams and other resources representing the conceptual model of the ontology (e.g., class hierarchies, relationships). |
+| **documentation/** | Stores the HTML or human oriented documentation of the ontology and related artefacts. |
+| **examples/** | Includes examples that demonstrate how to instantiate or apply the ontology in real data scenarios. |
+| **kos/** | Stores controlled vocabularies or KOS implementation, usually SKOS implementations in rdf. |
+| **ontology/** | Contains the actual ontology implementation files in formats such as `.owl`, `.rdf`, `.ttl`, or `.jsonld`. |
+| **requirements/** | Contains all documents used to define the ontology's requirements: data example, competency questions, functional requirements, use cases, etc. |
+| **shapes/** | Contains the SHACL shapes used to define and validate ontology constraints. |
+| **tests/** | Stores tests for ontology evaluation. |
 
-# Mantenimiento y evolución (Maintenance and evolution)
+# Mantenimiento y evolución
 
-Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guías proporcionadas en ([Issues Management](./ISSUES.md)) para generar una incidencia.
+To manage those incidents or suggested improvements with respect to the vocabulary, we recommend you to follow
+the guides provided in [Issues Management](./ISSUES.md) to
+generate an issue.
 
-# Financiación (Funding)
+# Financiación
 
-Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es)).
+Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es/)).
 
 ![Logos](./resources/EDINT_UE_V-Color.png)

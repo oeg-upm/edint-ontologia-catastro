@@ -1,0 +1,107 @@
+# =============================================================================
+# QUERY: CAT14 - Can a property have multiple constructions?
+# Question: ¿Un inmueble puede tener múltiples construcciones?
+# Answer: Sí, un inmueble puede tener múltiples construcciones asociadas
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Properties with multiple constructions
+# Returns properties that have more than one construction
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?propertyLabel (COUNT(?construction) AS ?constructionCount) WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel ;
+              edintcat:hasCadastralConstruction ?construction .
+}
+GROUP BY ?property ?propertyLabel
+HAVING (COUNT(?construction) > 1)
+ORDER BY DESC(?constructionCount)
+
+# -----------------------------------------------------------------------------
+# Query 2: All constructions for a specific property
+# Returns all constructions associated with a property
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?staircase ?floor ?door WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    ?property edintcat:hasCadastralConstruction ?construction .
+
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:staircase ?staircase ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door .
+
+    FILTER(?parcelRef = "8942103VK2793" && ?propertyRef = "0001UO")
+}
+ORDER BY ?staircase ?floor ?door
+
+# -----------------------------------------------------------------------------
+# Query 3: Properties grouped by construction count range
+# Returns properties grouped by number of constructions they contain
+# -----------------------------------------------------------------------------
+
+SELECT ?constructionCountRange (COUNT(DISTINCT ?property) AS ?propertyCount) WHERE {
+    ?property a edintcat:CadastralProperty ;
+              edintcat:hasCadastralConstruction ?construction .
+
+    {
+        SELECT ?property (COUNT(?construction) AS ?cCount) WHERE {
+            ?property edintcat:hasCadastralConstruction ?construction .
+        }
+        GROUP BY ?property
+    }
+
+    BIND(
+        IF(?cCount = 1, "1 construction",
+        IF(?cCount > 1 && ?cCount <= 10, "2-10 constructions",
+        IF(?cCount > 10 && ?cCount <= 50, "11-50 constructions",
+        IF(?cCount > 50, "50+ constructions", "Unknown")))) AS ?constructionCountRange
+}
+GROUP BY ?constructionCountRange
+
+# -----------------------------------------------------------------------------
+# Query 4: Constructions distribution per floor for a property
+# Returns number of constructions grouped by floor for a property
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?propertyLabel ?floor (COUNT(?construction) AS ?constructionCount) WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel ;
+              edintcat:hasCadastralConstruction ?construction .
+
+    ?construction edintcat:floor ?floor .
+
+    FILTER(?propertyLabel = "Inmueble 0001UO" || regex(str(?propertyLabel), "0001UO"))
+}
+GROUP BY ?property ?propertyLabel ?floor
+ORDER BY ?floor
+
+# -----------------------------------------------------------------------------
+# Query 5: Statistical summary of constructions per property
+# Returns aggregated statistics about construction distribution
+# -----------------------------------------------------------------------------
+
+SELECT (COUNT(?property) AS ?totalProperties)
+       (SUM(?constructionCount) AS ?totalConstructions)
+       (AVG(?constructionCount) AS ?avgConstructionsPerProperty)
+       (MIN(?constructionCount) AS ?minConstructionsInProperty)
+       (MAX(?constructionCount) AS ?maxConstructionsInProperty) WHERE {
+    {
+        SELECT ?property (COUNT(?construction) AS ?constructionCount) WHERE {
+            ?property a edintcat:CadastralProperty ;
+                      edintcat:hasCadastralConstruction ?construction .
+        }
+        GROUP BY ?property
+    }
+}

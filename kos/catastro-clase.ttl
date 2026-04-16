@@ -9,29 +9,6 @@
 @prefix edintkos-clase: <http://vocab.linkeddata.es/datosabiertos/kos/edint/clase/> .
 
 # =============================================================================
-# ONTOLOGY METADATA
-# =============================================================================
-
-<http://vocab.linkeddata.es/datosabiertos/kos/edint/clase> a owl:Ontology ;
-    owl:versionIRI <http://vocab.linkeddata.es/datosabiertos/kos/edint/clase/0.1.2> ;
-    owl:versionInfo "0.1.2" ;
-    dct:title "Controlled Vocabulary of Property Classification for Spanish Cadastre"@en ;
-    dct:title "Vocabulario Controlado de Clasificación de Inmuebles para el Catastro Español"@es ;
-    dct:description "SKOS concept scheme defining the legally mandated property classifications (Urban, Rural, BICES) and their subcategories in the Spanish Cadastre system according to RDLeg 1/2004."@en ;
-    dct:description "Esquema de conceptos SKOS que define las clasificaciones de inmuebles obligatorias por ley (Urbano, Rústico, BICES) y sus subcategorías en el sistema del Catastro Español según el RDLeg 1/2004."@es ;
-    dct:issued "2026-04-13"^^xsd:date ;
-    dct:modified "2026-04-13"^^xsd:date ;
-    dct:creator "Daniel Doña"@es ,
-                "Edna Ruckhaus" ,
-                "Lucía Sánchez" ,
-                "Maria del Socorro Bernardos" ,
-                "Oscar Corcho" ;
-    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dct:source <https://www.boe.es/buscar/act.php?id=BOE-A-2004-4163> ;
-    skos:note "Classes strictly aligned with the Spanish Real Decreto Legislativo 1/2004, de 5 de marzo, Ley del Catastro Inmobiliario."@en ;
-    skos:note "Clases estrictamente alineadas con el Real Decreto Legislativo 1/2004, de 5 de marzo, Ley del Catastro Inmobiliario."@es .
-
-# =============================================================================
 # CONCEPT SCHEME
 # =============================================================================
 

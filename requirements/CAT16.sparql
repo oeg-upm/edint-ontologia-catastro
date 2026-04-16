@@ -1,0 +1,81 @@
+# =============================================================================
+# QUERY: CAT16 - What is the support percentage of a construction
+# Question: ¿Qué es el porcentaje de soporte de una construcción?
+# Answer: El porcentaje de soporte indica qué parte del área es área de soporte (elementos comunes), expresado como porcentaje (ej: 50.00)
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Constructions with support percentage
+# Returns constructions and their support area percentage
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?supportPercentage WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:supportPercentage ?supportPercentage .
+}
+ORDER BY DESC(?supportPercentage)
+
+# -----------------------------------------------------------------------------
+# Query 2: Constructions with 50% support
+# Returns constructions that have half their area as support (common elements)
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?floor ?door WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:supportPercentage ?supportPercentage ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door .
+
+    FILTER(?supportPercentage = 50.0)
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Constructions with support (any percentage)
+# Returns constructions that have support percentage (> 0)
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?supportPercentage ?floor ?door WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:supportPercentage ?supportPercentage ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door .
+
+    FILTER(?supportPercentage > 0.0)
+}
+ORDER BY ?floor ?door
+
+# -----------------------------------------------------------------------------
+# Query 4: Constructions without support (supportPercentage = 100 or undefined)
+# Returns constructions with full area ownership (no support deduction)
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?floor ?door WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:floor ?floor ;
+                 edintcat:door ?door .
+
+    OPTIONAL { ?construction edintcat:supportPercentage ?supportPercentage } .
+
+    FILTER(!BOUND(?supportPercentage) || ?supportPercentage = 100.0)
+}
+ORDER BY ?floor ?door
+
+# -----------------------------------------------------------------------------
+# Query 5: Support percentage distribution by floor
+# Returns average support percentage grouped by floor
+# -----------------------------------------------------------------------------
+
+SELECT ?floor (AVG(?supportPercentage) AS ?avgSupportPercentage)
+       (COUNT(?construction) AS ?constructionCount) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:supportPercentage ?supportPercentage ;
+                 edintcat:floor ?floor .
+}
+GROUP BY ?floor
+ORDER BY ?floor

@@ -1,0 +1,91 @@
+# =============================================================================
+# QUERY: CAT06 - What cadastral class does a property have
+# Question: ¿Qué clase catastral tiene un inmueble?
+# Answer: Los inmuebles se clasifican según el vocabulario KOS de EDINT en: Urbano, Rústico, o especial BICES
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Properties by class type
+# Returns properties grouped by their classification (Urban, Rural, BICES)
+# -----------------------------------------------------------------------------
+
+SELECT ?classLabel (COUNT(?property) AS ?count) WHERE {
+    ?property a edintcat:CadastralProperty ;
+              edintcat:hasClass ?class .
+
+    ?class a skos:Concept ;
+          skos:prefLabel ?classLabel .
+}
+GROUP BY ?classLabel
+ORDER BY DESC(?count)
+
+# -----------------------------------------------------------------------------
+# Query 2: Properties with Urban classification
+# Returns all properties classified as "Urbano" (Urban)
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasClass ?class ;
+              edintcat:participation ?participation .
+
+    ?class a skos:Concept ;
+          skos:prefLabel "Urbano" .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Properties with Rural classification
+# Returns all properties classified as "Rústico" (Rural)
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasClass ?class ;
+              edintcat:participation ?participation .
+
+    ?class a skos:Concept ;
+          skos:prefLabel "Rústico" .
+}
+
+# -----------------------------------------------------------------------------
+# Query 4: Parcels by classification
+# Returns parcels with their classification
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel ?classLabel ?parcelRef WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasClass ?class ;
+            edintcat:hasCadastralReference ?ref .
+
+    ?class a skos:Concept ;
+          skos:prefLabel ?classLabel .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef .
+}
+
+# -----------------------------------------------------------------------------
+# Query 5: Properties with both class and use
+# Returns properties showing classification and use combination
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?classLabel ?useLabel ?participation WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:hasClass ?class ;
+              edintcat:hasUse ?use ;
+              edintcat:participation ?participation .
+
+    ?class a skos:Concept ;
+           skos:prefLabel ?classLabel .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel .
+}
+ORDER BY ?classLabel ?useLabel

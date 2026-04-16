@@ -1,0 +1,102 @@
+# =============================================================================
+# QUERY: CAT12 - What area information does a construction have
+# Question: ¿Qué información de área tiene una construcción?
+# Answer: Las construcciones tienen un área medida en metros cuadrados (m²) utilizando GeoSPARQL
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX qudtunit: <http://qudt.org/vocab/unit/>
+
+# -----------------------------------------------------------------------------
+# Query 1: Constructions with their area in m²
+# Returns all constructions and their measured area
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?area WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 geo:hasGeometry ?geometry .
+
+    ?geometry geo:hasArea ?measure .
+
+    ?measure geo:measureAmount ?area ;
+             qudt:unit qudtunit:M2 .
+}
+ORDER BY DESC(?area)
+
+# -----------------------------------------------------------------------------
+# Query 2: Constructions with area above threshold
+# Returns constructions with area greater than 100 m²
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?area WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 geo:hasGeometry ?geometry .
+
+    ?geometry geo:hasArea ?measure .
+
+    ?measure geo:measureAmount ?area ;
+             qudt:unit qudtunit:M2 .
+
+    FILTER(?area > 100.0)
+}
+ORDER BY DESC(?area)
+
+# -----------------------------------------------------------------------------
+# Query 3: Total area by property
+# Returns sum of all construction areas per property
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?propertyLabel (SUM(?area) AS ?totalArea) WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel ;
+              edintcat:hasCadastralConstruction ?construction .
+
+    ?construction geo:hasGeometry ?geometry .
+
+    ?geometry geo:hasArea ?measure .
+
+    ?measure geo:measureAmount ?area ;
+             qudt:unit qudtunit:M2 .
+}
+GROUP BY ?property ?propertyLabel
+ORDER BY DESC(?totalArea)
+
+# -----------------------------------------------------------------------------
+# Query 4: Average area by construction use
+# Returns average construction area grouped by use type
+# -----------------------------------------------------------------------------
+
+SELECT ?useLabel (AVG(?area) AS ?avgArea) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:hasUse ?use ;
+                 geo:hasGeometry ?geometry .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel .
+
+    ?geometry geo:hasArea ?measure .
+
+    ?measure geo:measureAmount ?area ;
+             qudt:unit qudtunit:M2 .
+}
+GROUP BY ?useLabel
+ORDER BY DESC(?avgArea)
+
+# -----------------------------------------------------------------------------
+# Query 5: Smallest and largest construction areas
+# Returns minimum and maximum construction areas in the dataset
+# -----------------------------------------------------------------------------
+
+SELECT (MIN(?area) AS ?minArea) (MAX(?area) AS ?maxArea) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 geo:hasGeometry ?geometry .
+
+    ?geometry geo:hasArea ?measure .
+
+    ?measure geo:measureAmount ?area ;
+             qudt:unit qudtunit:M2 .
+}

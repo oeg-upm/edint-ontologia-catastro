@@ -1,0 +1,83 @@
+# =============================================================================
+# QUERY: CAT04 - How constructions relate to parcels
+# Question: ¿Cómo se relacionan las construcciones con las parcelas?
+# Answer: Las construcciones se relacionan con las parcelas a través de un inmueble intermedio: Parcela → Inmueble → Construcción
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Direct path construction → property → parcel
+# Returns the complete relationship chain
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?constructionLabel ?property ?propertyLabel
+       ?parcel ?parcelLabel WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?constructionLabel ;
+                 edintcat:onCadastralProperty ?property .
+
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel ;
+              edintcat:onCadastralParcel ?parcel .
+
+    ?parcel a edintcat:CadastralParcel ;
+             rdfs:label ?parcelLabel .
+}
+
+# -----------------------------------------------------------------------------
+# Query 2: Constructions on a specific parcel (by reference)
+# Returns all constructions on a parcel identified by parcel reference
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?constructionLabel ?property ?propertyLabel
+       ?parcel ?parcelRef WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            edintcat:hasCadastralReference ?parcelRefObj ;
+            edintcat:hasCadastralProperty ?property .
+
+    ?property edintcat:hasCadastralConstruction ?construction .
+
+    ?parcelRefObj a edintcat:CadastralReference ;
+                  edintcat:parcelReference "0569302" .
+
+    ?construction rdfs:label ?constructionLabel ;
+                 ?property rdfs:label ?propertyLabel .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Count constructions per parcel
+# Returns parcels and the number of constructions they contain
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel (COUNT(?construction) AS ?constructionCount) WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasCadastralProperty ?property ;
+            edintcat:hasCadastralProperty/^edintcat:hasCadastralConstruction ?construction .
+}
+GROUP BY ?parcel ?parcelLabel
+
+# -----------------------------------------------------------------------------
+# Query 4: Reverse - Find parcel for a specific construction
+# Returns the parcel where a construction is located (full path)
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?property ?parcel ?parcelRef ?propertyRef WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:onCadastralProperty ?property .
+
+    ?property a edintcat:CadastralProperty ;
+              edintcat:onCadastralParcel ?parcel ;
+              edintcat:hasCadastralReference ?propRef .
+
+    ?parcel edintcat:hasCadastralReference ?parcelRef .
+
+    ?propRef edintcat:parcelReference ?parcelRefStr ;
+             edintcat:propertyReference ?propertyRefStr .
+
+    ?parcelRef edintcat:parcelReference ?parcelRefStr .
+
+    BIND(?parcelRefStr AS ?parcelRef)
+    BIND(?propertyRefStr AS ?propertyRef)
+}

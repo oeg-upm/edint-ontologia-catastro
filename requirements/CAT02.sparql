@@ -1,0 +1,67 @@
+# =============================================================================
+# QUERY: CAT02 - What entities compose the Spanish Cadastre
+# Question: ¿Qué entidades componen el catastro español?
+# Answer: El catastro español se compone de tres entidades principales: Parcelas Catastrales, Inmuebles Catastrales y Construcciones Catastrales
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Count all cadastral entities by type
+# Returns the count of parcels, properties, and constructions
+# -----------------------------------------------------------------------------
+
+SELECT ?entityType (COUNT(?entity) AS ?count) WHERE {
+    {
+        ?entity a edintcat:CadastralParcel .
+        BIND("Parcela Catastral" AS ?entityType)
+    } UNION {
+        ?entity a edintcat:CadastralProperty .
+        BIND("Inmueble Catastral" AS ?entityType)
+    } UNION {
+        ?entity a edintcat:CadastralConstruction .
+        BIND("Construcción Catastral" AS ?entityType)
+    }
+}
+GROUP BY ?entityType
+
+# -----------------------------------------------------------------------------
+# Query 2: List all parcels with their properties count
+# Returns parcels and the number of properties they contain
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel (COUNT(?property) AS ?propertyCount) WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasCadastralProperty ?property .
+}
+GROUP BY ?parcel ?parcelLabel
+
+# -----------------------------------------------------------------------------
+# Query 3: List all properties with their constructions count
+# Returns properties and the number of constructions they contain
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?propertyLabel (COUNT(?construction) AS ?constructionCount) WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel ;
+              edintcat:hasCadastralConstruction ?construction .
+}
+GROUP BY ?property ?propertyLabel
+
+# -----------------------------------------------------------------------------
+# Query 4: Full hierarchy from parcel to construction
+# Returns the complete path: parcel → property → construction
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?property ?construction ?propertyLabel ?constructionLabel WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            edintcat:hasCadastralProperty ?property .
+
+    ?property a edintcat:CadastralProperty ;
+             rdfs:label ?propertyLabel ;
+             edintcat:hasCadastralConstruction ?construction .
+
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?constructionLabel .
+}

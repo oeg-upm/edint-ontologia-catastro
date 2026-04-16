@@ -1,0 +1,88 @@
+# =============================================================================
+# QUERY: CAT15 - What is the participation percentage of a property
+# Question: ¿Cuál es el porcentaje de participación de un inmueble?
+# Answer: El porcentaje de participación indica qué parte de los elementos comunes corresponde a un inmueble (ej: 100.00)
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Properties with their participation percentage
+# Returns all properties and their participation in common elements
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation .
+}
+ORDER BY DESC(?participation)
+
+# -----------------------------------------------------------------------------
+# Query 2: Properties with 100% participation (full ownership)
+# Returns properties with full participation in common elements
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?parcelRef ?propertyRef WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference ?parcelRef ;
+         edintcat:propertyReference ?propertyRef .
+
+    FILTER(?participation = 100.0)
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Properties with partial participation (< 100%)
+# Returns properties with shared ownership of common elements
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation ?useLabel WHERE {
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation ;
+              edintcat:hasUse ?use .
+
+    ?use a skos:Concept ;
+         skos:prefLabel ?useLabel .
+
+    FILTER(?participation < 100.0)
+}
+ORDER BY ASC(?participation)
+
+# -----------------------------------------------------------------------------
+# Query 4: Participation distribution for a parcel
+# Returns all properties on a parcel with their participation percentages
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            edintcat:hasCadastralProperty ?property .
+
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation ;
+              edintcat:hasCadastralReference ?ref .
+
+    ?ref a edintcat:CadastralReference ;
+         edintcat:parcelReference "8942103VK2793" .
+}
+ORDER BY DESC(?participation)
+
+# -----------------------------------------------------------------------------
+# Query 5: Total participation sum for a parcel
+# Returns sum of all participation percentages (should be 100 or close)
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel (SUM(?participation) AS ?totalParticipation) WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasCadastralProperty ?property .
+
+    ?property edintcat:participation ?participation .
+}
+GROUP BY ?parcel ?parcelLabel

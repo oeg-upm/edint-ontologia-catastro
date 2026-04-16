@@ -1,0 +1,91 @@
+# =============================================================================
+# QUERY: CAT13 - Can a parcel have multiple properties?
+# Question: ¿Una parcela puede tener múltiples inmuebles?
+# Answer: Sí, una parcela puede tener múltiples inmuebles catastrales asociados (común en división horizontal)
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Parcels with multiple properties (horizontal division)
+# Returns parcels that have more than one property
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel (COUNT(?property) AS ?propertyCount) WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasCadastralProperty ?property .
+}
+GROUP BY ?parcel ?parcelLabel
+HAVING (COUNT(?property) > 1)
+ORDER BY DESC(?propertyCount)
+
+# -----------------------------------------------------------------------------
+# Query 2: Properties on a specific parcel
+# Returns all properties for a specific parcel reference
+# -----------------------------------------------------------------------------
+
+SELECT ?property ?label ?participation ?parcelRef ?propertyRef WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasCadastralProperty ?property ;
+            edintcat:hasCadastralReference ?parcelRefObj .
+
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label ;
+              edintcat:participation ?participation ;
+              edintcat:hasCadastralReference ?propRef .
+
+    ?parcelRefObj a edintcat:CadastralReference ;
+                  edintcat:parcelReference "8942103VK2793" .
+
+    ?propRef a edintcat:CadastralReference ;
+             edintcat:parcelReference ?parcelRef ;
+             edintcat:propertyReference ?propertyRef .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Single property parcels
+# Returns parcels with exactly one property
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasCadastralProperty ?property .
+}
+GROUP BY ?parcel ?parcelLabel
+HAVING (COUNT(?property) = 1)
+
+# -----------------------------------------------------------------------------
+# Query 4: Properties with horizontal division flag
+# Returns parcels/properties that have horizontal division
+# -----------------------------------------------------------------------------
+
+SELECT ?parcel ?parcelLabel ?property ?label ?hasHorizontalDivision WHERE {
+    ?parcel a edintcat:CadastralParcel ;
+            rdfs:label ?parcelLabel ;
+            edintcat:hasHorizontalDivision ?hasHorizontalDivision ;
+            edintcat:hasCadastralProperty ?property .
+
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?label .
+}
+
+# -----------------------------------------------------------------------------
+# Query 5: Distribution of properties per parcel
+# Returns statistical summary of property distribution
+# -----------------------------------------------------------------------------
+
+SELECT (COUNT(?parcel) AS ?totalParcels)
+       (SUM(?propertyCount) AS ?totalProperties)
+       (AVG(?propertyCount) AS ?avgPropertiesPerParcel)
+       (MAX(?propertyCount) AS ?maxPropertiesInParcel) WHERE {
+    {
+        SELECT ?parcel (COUNT(?property) AS ?propertyCount) WHERE {
+            ?parcel a edintcat:CadastralParcel ;
+                    edintcat:hasCadastralProperty ?property .
+        }
+        GROUP BY ?parcel
+    }
+}

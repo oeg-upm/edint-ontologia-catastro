@@ -1,0 +1,78 @@
+# =============================================================================
+# QUERY: CAT18 - Can a construction be associated with multiple properties?
+# Question: ¿Una construcción puede estar asociada a múltiples inmuebles?
+# Answer: La ontología define que una construcción está asociada a un inmueble específico, pero el modelo permite múltiples relaciones a través de propiedades inversas
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Constructions with their associated properties
+# Returns each construction and its single assigned property
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?constructionLabel ?property ?propertyLabel WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?constructionLabel ;
+                 edintcat:onCadastralProperty ?property .
+
+    ?property a edintcat:CadastralProperty ;
+              rdfs:label ?propertyLabel .
+}
+ORDER BY ?constructionLabel
+
+# -----------------------------------------------------------------------------
+# Query 2: Verify unique construction-to-property mapping
+# Checks if any construction is associated with multiple properties
+# -----------------------------------------------------------------------------
+
+SELECT ?construction (COUNT(?property) AS ?propertyCount) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:onCadastralProperty ?property .
+}
+GROUP BY ?construction
+HAVING (COUNT(?property) > 1)
+
+# -----------------------------------------------------------------------------
+# Query 3: Properties sharing constructions (theoretical case)
+# Shows if any property shares a construction with another property
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?property1 ?property2 WHERE {
+    ?construction a edintcat:CadastralConstruction .
+
+    ?construction edintcat:onCadastralProperty ?property1 .
+    ?construction edintcat:onCadastralProperty ?property2 .
+
+    FILTER(?property1 != ?property2)
+}
+
+# -----------------------------------------------------------------------------
+# Query 4: Constructions by property classification
+# Returns constructions grouped by the classification of their associated property
+# -----------------------------------------------------------------------------
+
+SELECT ?classLabel (COUNT(?construction) AS ?constructionCount) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:onCadastralProperty ?property .
+
+    ?property a edintcat:CadastralProperty ;
+              edintcat:hasClass ?class .
+
+    ?class a skos:Concept ;
+           skos:prefLabel ?classLabel .
+}
+GROUP BY ?classLabel
+ORDER BY DESC(?constructionCount)
+
+# -----------------------------------------------------------------------------
+# Query 5: Construction and property relationship summary
+# Statistical summary of construction-property relationships
+# -----------------------------------------------------------------------------
+
+SELECT (COUNT(?construction) AS ?totalConstructions)
+       (COUNT(?property) AS ?totalProperties)
+       (COUNT(?construction) / COUNT(?property) AS ?constructionsPerProperty) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:onCadastralProperty ?property .
+}

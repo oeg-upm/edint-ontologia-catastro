@@ -1,0 +1,98 @@
+# =============================================================================
+# QUERY: CAT17 - How to register renovations of a construction
+# Question: ¿Cómo se registran las reformas de una construcción?
+# Answer: Las reformas se registran como instancias de Renovation, vinculadas a una construcción con tipo y fecha
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Constructions with their renovations
+# Returns constructions that have at least one renovation
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?constructionLabel WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?constructionLabel ;
+                 edintcat:hasRenovation ?renovation .
+}
+ORDER BY ?constructionLabel
+
+# -----------------------------------------------------------------------------
+# Query 2: All renovations with type and date
+# Returns all renovation events with their details
+# -----------------------------------------------------------------------------
+
+SELECT ?renovation ?renovationType ?renovationDate WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:hasRenovation ?renovation .
+
+    ?renovation a edintcat:Renovation ;
+                edintcat:renovationType ?renovationType ;
+                edintcat:renovationDate ?renovationDate .
+}
+ORDER BY DESC(?renovationDate)
+
+# -----------------------------------------------------------------------------
+# Query 3: Renovations for a specific construction
+# Returns all renovations for a specific construction (by staircase/floor/door)
+# -----------------------------------------------------------------------------
+
+SELECT ?renovation ?renovationType ?renovationDate ?construction ?constructionLabel WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?constructionLabel ;
+                 edintcat:staircase "5" ;
+                 edintcat:floor "-2" ;
+                 edintcat:door "03" ;
+                 edintcat:hasRenovation ?renovation .
+
+    ?renovation a edintcat:Renovation ;
+                edintcat:renovationType ?renovationType ;
+                edintcat:renovationDate ?renovationDate .
+}
+ORDER BY DESC(?renovationDate)
+
+# -----------------------------------------------------------------------------
+# Query 4: Renovations by type
+# Returns renovations grouped by renovation type
+# -----------------------------------------------------------------------------
+
+SELECT ?renovationType (COUNT(?renovation) AS ?count) WHERE {
+    ?renovation a edintcat:Renovation ;
+                edintcat:renovationType ?renovationType .
+}
+GROUP BY ?renovationType
+ORDER BY DESC(?count)
+
+# -----------------------------------------------------------------------------
+# Query 5: Recent renovations (last 5 years)
+# Returns renovations performed in the last 5 years (relative to 2026)
+# -----------------------------------------------------------------------------
+
+SELECT ?renovation ?renovationType ?renovationDate ?construction ?constructionLabel WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?constructionLabel ;
+                 edintcat:hasRenovation ?renovation .
+
+    ?renovation a edintcat:Renovation ;
+                edintcat:renovationType ?renovationType ;
+                edintcat:renovationDate ?renovationDate .
+
+    FILTER(?renovationDate >= "2021-01-01"^^xsd:date)
+}
+ORDER BY DESC(?renovationDate)
+
+# -----------------------------------------------------------------------------
+# Query 6: Count renovations per construction
+# Returns number of renovations per construction
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?constructionLabel (COUNT(?renovation) AS ?renovationCount) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?constructionLabel ;
+                 edintcat:hasRenovation ?renovation .
+}
+GROUP BY ?construction ?constructionLabel
+HAVING (COUNT(?renovation) > 0)
+ORDER BY DESC(?renovationCount)

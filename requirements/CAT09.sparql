@@ -1,0 +1,82 @@
+# =============================================================================
+# QUERY: CAT09 - When was a construction built
+# Question: ¿Cuándo se construyó una construcción?
+# Answer: La fecha de construcción de una construcción se almacena como año gregoriano (ej: 2012) utilizando la propiedad constructionYear
+# =============================================================================
+
+PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# -----------------------------------------------------------------------------
+# Query 1: Constructions with their construction year
+# Returns all constructions and the year they were built
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?constructionYear WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:constructionYear ?constructionYear .
+}
+ORDER BY ?constructionYear
+
+# -----------------------------------------------------------------------------
+# Query 2: Constructions built in a specific year
+# Returns constructions built in 2012
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:constructionYear "2012"^^xsd:gYear .
+}
+
+# -----------------------------------------------------------------------------
+# Query 3: Constructions built in a year range
+# Returns constructions built between 2010 and 2020
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?constructionYear WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:constructionYear ?constructionYear .
+
+    FILTER(?constructionYear >= "2010"^^xsd:gYear && ?constructionYear <= "2020"^^xsd:gYear)
+}
+ORDER BY DESC(?constructionYear)
+
+# -----------------------------------------------------------------------------
+# Query 4: Count constructions by year
+# Returns number of constructions built per year
+# -----------------------------------------------------------------------------
+
+SELECT ?constructionYear (COUNT(?construction) AS ?count) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:constructionYear ?constructionYear .
+}
+GROUP BY ?constructionYear
+ORDER BY DESC(?constructionYear)
+
+# -----------------------------------------------------------------------------
+# Query 5: Oldest and newest constructions
+# Returns the oldest and newest construction year in the dataset
+# -----------------------------------------------------------------------------
+
+SELECT (MIN(?constructionYear) AS ?oldestYear)
+       (MAX(?constructionYear) AS ?newestYear) WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 edintcat:constructionYear ?constructionYear .
+}
+
+# -----------------------------------------------------------------------------
+# Query 6: Recent constructions (last 10 years)
+# Returns constructions built in the last 10 years (relative to 2026)
+# -----------------------------------------------------------------------------
+
+SELECT ?construction ?label ?constructionYear WHERE {
+    ?construction a edintcat:CadastralConstruction ;
+                 rdfs:label ?label ;
+                 edintcat:constructionYear ?constructionYear .
+
+    FILTER(?constructionYear >= "2016"^^xsd:gYear)
+}
+ORDER BY DESC(?constructionYear)
