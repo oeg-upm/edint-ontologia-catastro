@@ -4,7 +4,7 @@
 # Answer: La ontología define que una construcción está asociada a un inmueble específico, pero el modelo permite múltiples relaciones a través de propiedades inversas
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 
 # -----------------------------------------------------------------------------
 # Query 1: Constructions with their associated properties

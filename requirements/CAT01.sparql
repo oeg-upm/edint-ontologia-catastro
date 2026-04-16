@@ -4,7 +4,7 @@
 # Answer: Una parcela catastral se identifica mediante una referencia catastral única compuesta por 14 caracteres (7 dígitos de parcela + 7 dígitos de inmueble)
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 
 # -----------------------------------------------------------------------------
 # Query 1: Basic - Find all cadastral parcels

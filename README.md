@@ -12,33 +12,29 @@ El propósito de esta ontología es modelar las entidades y relaciones fundament
 
 El prefijo de esta ontología es `edintcat`. Se publica en el espacio de nombres: http://vocab.linkeddata.es/datosabiertos/def/catastro/
 
-# Modelo conceptual
+# Modelo conceptual (Ontology conceptualization)
 
 ![Diagrama del modelo conceptual](diagrams/diagrama-catastro.drawio.png)
 
-# Estructura del repositorio
+# Estructura del repositorio (Repository structure)
 
-El repositorio contiene las siguientes carpetas:
-
-| Folder | Description |
+| Carpeta | Descripción |
 |--------|--------------|
-| **diagrams/** | Stores diagrams and other resources representing the conceptual model of the ontology (e.g., class hierarchies, relationships). |
-| **documentation/** | Stores the HTML or human oriented documentation of the ontology and related artefacts. |
-| **examples/** | Includes examples that demonstrate how to instantiate or apply the ontology in real data scenarios. |
-| **kos/** | Stores controlled vocabularies or KOS implementation, usually SKOS implementations in rdf. |
-| **ontology/** | Contains the actual ontology implementation files in formats such as `.owl`, `.rdf`, `.ttl`, or `.jsonld`. |
-| **requirements/** | Contains all documents used to define the ontology's requirements: data example, competency questions, functional requirements, use cases, etc. |
-| **shapes/** | Contains the SHACL shapes used to define and validate ontology constraints. |
-| **tests/** | Stores tests for ontology evaluation. |
+| **diagrams/**     | Almacena diagramas y otros recursos que representan el modelo conceptual de la ontología (por ejemplo, jerarquías de clases, relaciones).                                     |
+| **documentation/**         | Almacena la documentación HTML u orientada a humanos de la ontología y artefactos relacionados.                                                                               |
+| **examples/**     | Incluye ejemplos que demuestran cómo instanciar o aplicar la ontología en escenarios de datos reales.                                                                         |
+| **kos/**          | Almacena vocabularios controlados o implementación de KOS, generalmente implementaciones SKOS en RDF.                                                                         |
+| **ontology/**     | Contiene los archivos de implementación reales de la ontología en formatos como `.owl`, `.rdf`, `.ttl` o `.jsonld`.                                                           |
+| **requirements/** | Contiene todos los documentos utilizados para definir los requisitos de la ontología: ejemplos de datos, preguntas de competencia, requisitos funcionales, casos de uso, etc. |
+| **shapes/**       | Contiene los SHACL shapes utilizadas para definir y validar las restricciones de la ontología.                                                                                |
 
-# Mantenimiento y evolución
 
-To manage those incidents or suggested improvements with respect to the vocabulary, we recommend you to follow
-the guides provided in [Issues Management](./ISSUES.md) to
-generate an issue.
+# Mantenimiento y evolución (Maintenance and evolution)
 
-# Financiación
+Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guía proporcionadas en ([Issues Management](https://github.com/telefonicasc/edint-ontologia-zonaregulatoria/wiki/issues-management)) para generar una indicencia (trabajo en progreso).
 
-Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es/)).
+# Financiación (Funding)
 
-![Logos](./resources/EDINT_UE_V-Color.png)
+Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es)).
+
+![Logos](EDINT_UE_V-Color.png)

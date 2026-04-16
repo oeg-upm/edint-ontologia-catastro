@@ -128,7 +128,7 @@ The examples follow this general structure:
 
 ```turtle
 @prefix : <https://edint.github.io/edint-ontologia-catastro/examples#> .
-@prefix edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#> .
+@prefix edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix callejero: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#> .

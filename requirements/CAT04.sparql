@@ -4,7 +4,7 @@
 # Answer: Las construcciones se relacionan con las parcelas a través de un inmueble intermedio: Parcela → Inmueble → Construcción
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 
 # -----------------------------------------------------------------------------
 # Query 1: Direct path construction → property → parcel

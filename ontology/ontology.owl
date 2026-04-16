@@ -1,4 +1,4 @@
-@prefix edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#> .
+@prefix edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -16,8 +16,8 @@
 # ONTOLOGY METADATA
 # =============================================================================
 
-<https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro> a owl:Ontology ;
-    owl:versionIRI <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro/0.1.0> ;
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/> a owl:Ontology ;
+    owl:versionIRI <http://vocab.linkeddata.es/datosabiertos/def/catastro/0.1.0> ;
     owl:versionInfo "0.1.0" ;
     dcterms:title "Spanish Cadastre Ontology"@en ;
     dcterms:title "Ontología del Catastro Español"@es ;
@@ -33,12 +33,10 @@
     cc:license <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     owl:imports <http://www.opengis.net/ont/geosparql> ,
-                <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero> ,
-                <http://vocab.linkeddata.es/datosabiertos/kos/edint/uso> ,
-                <http://vocab.linkeddata.es/datosabiertos/kos/edint/clase> ;
+                <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero> ;
     rdfs:comment "Initial draft version focusing on core classes: CadastralParcel, CadastralProperty, and CadastralConstruction with their relationships and properties."@en ;
     rdfs:comment "Versión inicial centrada en las clases principales: ParcelaCatastral, Inmueble y Construcción con sus relaciones y propiedades."@es ;
-    vann:preferredNamespaceUri "https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#" ;
+    vann:preferredNamespaceUri "http://vocab.linkeddata.es/datosabiertos/def/catastro/" ;
     vann:preferredNamespacePrefix "edintcat" .
 
 dcterms:contributor a owl:AnnotationProperty .
@@ -221,12 +219,6 @@ edintcat:hasClass
 
 
 
-# --- Temporal relationships ---
-
-# (None - construction date is modeled as datatype property constructionYear)
-
-# --- Renovation relationships ---
-
 
 edintcat:hasRenovation
     a owl:ObjectProperty ;
@@ -262,20 +254,6 @@ edintcat:hasCadastralReference
     rdfs:comment "Relationship linking a cadastral entity to its complete cadastral reference."@en ;
     rdfs:comment "Relación que vincula una entidad catastral con su referencia catastral completa."@es .
 
-# --- Real Estate Listings ---
-
-edintcat:hasListing
-    a owl:ObjectProperty ;
-    rdfs:label "has real estate listing"@en ;
-    rdfs:label "tiene anuncio inmobiliario"@es ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (edintcat:CadastralParcel edintcat:CadastralProperty) ;
-    ] ;
-    rdfs:range <https://edint.github.io/edint-ontologia-inmuebles/ontology/inmobiliaria#RealEstateListing> ;
-    rdfs:comment "Relationship indicating that a cadastral parcel or property has one or more real estate listings associated (offers, rentals, etc.)."@en ;
-    rdfs:comment "Relación que indica que una parcela o inmueble catastral tiene uno o más anuncios inmobiliarios asociados (ofertas, alquileres, etc.)."@es ;
-    owl:inverseOf <https://edint.github.io/edint-ontologia-inmuebles/ontology/inmobiliaria#refersToCadastralEntity> .
 
 # =============================================================================
 # DATA PROPERTIES

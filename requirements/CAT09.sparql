@@ -4,7 +4,7 @@
 # Answer: La fecha de construcción de una construcción se almacena como año gregoriano (ej: 2012) utilizando la propiedad constructionYear
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 # -----------------------------------------------------------------------------

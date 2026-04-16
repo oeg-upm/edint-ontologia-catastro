@@ -4,7 +4,7 @@
 # Answer: Un inmueble catastral contiene: referencia catastral, porcentaje de participación, uso, clasificación, y opcionalmente dirección
 # =============================================================================
 
-PREFIX edintcat: <https://edint.github.io/edint-ontologia-inmuebles/ontology/catastro#>
+PREFIX edintcat: <http://vocab.linkeddata.es/datosabiertos/def/catastro/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX callejero: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#>
 
