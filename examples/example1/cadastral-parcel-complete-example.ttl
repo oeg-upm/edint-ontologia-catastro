@@ -26,13 +26,13 @@
     a catastro:CadastralParcel ;
     rdfs:label "Parcela 8942103VK2793"@es ;
     rdfs:label "Parcel 8942103VK2793"@en ;
-    catastro:hasCadastralReference :RefCatastral_8942103VK2793_Parcela ;
+    catastro:hasParcelReference :RefCatastral_8942103VK2793_Parcela ;
     catastro:hasCadastralProperty :Inmueble_8942103VK2793S0001UO ;
     catastro:hasClass edintkos-clase:Urban ;
     dct:source <https://www.sedecatastro.gob.es> .
 
 :RefCatastral_8942103VK2793_Parcela
-    a catastro:CadastralReference ;
+    a catastro:ParcelReference ;
     catastro:parcelReference "8942103VK2793" .
 
 # Geometry for the parcel
@@ -73,7 +73,7 @@
     a catastro:CadastralProperty ;
     rdfs:label "Inmueble 0001UO"@es ;
     rdfs:label "Cadastral Property 0001UO"@en ;
-    catastro:hasCadastralReference :RefCatastral_8942103VK2793S0001UO_Property ;
+    catastro:hasPropertyReference :RefCatastral_8942103VK2793S0001UO_Property ;
     catastro:participation "100.00"^^xsd:decimal ;
     catastro:onCadastralParcel :Parcela_8942103VK2793 ;
     catastro:hasUse edintkos-uso:Cultural ;
@@ -84,7 +84,7 @@
     dct:source <https://www.sedecatastro.gob.es> .
 
 :RefCatastral_8942103VK2793S0001UO_Property
-    a catastro:CadastralReference ;
+    a catastro:PropertyReference ;
     catastro:parcelReference "8942103VK2793" ;
     catastro:propertyReference "0001UO" .
 

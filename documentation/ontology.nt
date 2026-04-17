@@ -2,17 +2,20 @@
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://www.w3.org/2002/07/owl#versionIRI> <http://vocab.linkeddata.es/datosabiertos/def/catastro/0.1.0> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://www.w3.org/2002/07/owl#imports> <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://www.w3.org/2002/07/owl#imports> <http://www.opengis.net/ont/geosparql> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://creativecommons.org/ns#license> <https://creativecommons.org/licenses/by/4.0/> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/abstract> "Ontology for modeling Spanish Cadastre core entities (Parcels, Properties, Buildings) with their spatial, administrative, and descriptive attributes."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/abstract> "Ontología para modelar las entidades core del Catastro Español (Parcelas, Inmuebles, Construcciones) con sus atributos espaciales, administrativos y descriptivos."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/created> "2026-04-09"^^<http://www.w3.org/2001/XMLSchema#date> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/creator> "Daniel Doña"@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/creator> "Daniel Doña" .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/creator> "Edna Ruckhaus" .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/creator> "Lucía Sánchez" .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/creator> "Maria del Socorro Bernardos" .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/creator> "Oscar Corcho" .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/description> "Ontology for modeling Spanish Cadastre entities, focused on Parcels, Properties and Buildings. Reuses GeoSPARQL, INSPIRE concepts, and the Spanish street catalog (callejero) vocabulary."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/description> "Ontología para modelar las entidades del Catastro Español, centrada en Parcelas, Inmuebles y Construcciones. Reutiliza GeoSPARQL, conceptos INSPIRE y el vocabulario de callejero español."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/hasFormat> <http://vocab.linkeddata.es/datosabiertos/def/catastro/ontology.owl> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/issued> "2026-04-09"^^<http://www.w3.org/2001/XMLSchema#date> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/modified> "2026-04-09"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/modified> "2026-04-17"^^<http://www.w3.org/2001/XMLSchema#date> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/title> "Ontología del Catastro Español"@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/dc/terms/title> "Spanish Cadastre Ontology"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "edintcat" .
@@ -29,11 +32,8 @@
 # #################################################################
 # 
 # 
-# http://creativecommons.org/ns#license
-<http://creativecommons.org/ns#license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
-# http://purl.org/dc/terms/contributor
-<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # http://purl.org/dc/terms/created
 <http://purl.org/dc/terms/created> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
@@ -41,35 +41,17 @@
 # http://purl.org/dc/terms/creator
 <http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
-# http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
 # http://purl.org/dc/terms/license
 <http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # http://purl.org/dc/terms/modified
 <http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
-# http://purl.org/dc/terms/source
-<http://purl.org/dc/terms/source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
-# http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
 # http://purl.org/vocab/vann/preferredNamespacePrefix
 <http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
-# http://purl.org/vocab/vann/preferredNamespaceUri
-<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
-# http://qudt.org/schema/qudt/applicableUnit
-<http://qudt.org/schema/qudt/applicableUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
-# http://www.w3.org/2002/07/owl#versionIRI
-<http://www.w3.org/2002/07/owl#versionIRI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-# 
-# http://www.w3.org/2002/07/owl#versionInfo
-<http://www.w3.org/2002/07/owl#versionInfo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# http://qudt.org/schema/qudt/unit
+<http://qudt.org/schema/qudt/unit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # 
 # 
@@ -109,12 +91,12 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#Portal> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que vincula un inmueble o parcela con su dirección en el vocabulario callejero. A través de esta relación, se puede obtener información de ubicación (municipio, provincia, código postal) del Portal enlazado."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship linking a property or parcel to its address in the callejero vocabulary. Through this relationship, location information (municipality, province, postal code) can be obtained from the linked callejero:Portal."@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress> <http://www.w3.org/2000/01/rdf-schema#label> "has address"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress> <http://www.w3.org/2000/01/rdf-schema#label> "tiene dirección"@es .
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction> <http://www.w3.org/2002/07/owl#inverseOf> <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que indica las unidades constructivas específicas (locales/partes) que conforman un inmueble catastral."@es .
@@ -132,9 +114,9 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty> <http://www.w3.org/2000/01/rdf-schema#label> "has cadastral property"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty> <http://www.w3.org/2000/01/rdf-schema#label> "tiene inmueble catastral"@es .
 # 
-# http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid4 .
+# http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid4 .
 _:genid4 <http://www.w3.org/2002/07/owl#unionOf> _:genid6 .
 _:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
 _:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
@@ -143,31 +125,48 @@ _:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/19
 _:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> .
 _:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 _:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que vincula una entidad catastral con su referencia catastral completa."@es .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship linking a cadastral entity to its complete cadastral reference."@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> <http://www.w3.org/2000/01/rdf-schema#label> "has cadastral reference"@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> <http://www.w3.org/2000/01/rdf-schema#label> "tiene referencia catastral"@es .
-# 
-# http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid7 .
-_:genid7 <http://www.w3.org/2002/07/owl#unionOf> _:genid9 .
-_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid8 .
-_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
-_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> .
-_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/2000/01/rdf-schema#range> _:genid7 .
 _:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:genid7 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid9 .
+_:genid9 <http://www.w3.org/2002/07/owl#hasValue> <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase> .
+<http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:genid9 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2004/02/skos/core#inScheme> .
+<http://www.w3.org/2004/02/skos/core#inScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que asigna una clasificación (urbano/rústico) a una parcela o inmueble. Los conceptos de clasificación se definen en el vocabulario SKOS externo en http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship that assigns a classification (urban/rural) to a parcel or property. Classification concepts are defined in external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/2000/01/rdf-schema#label> "has class"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass> <http://www.w3.org/2000/01/rdf-schema#label> "tiene clase"@es .
 # 
+# http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> <http://www.w3.org/2002/07/owl#inverseOf> <http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que vincula una parcela catastral con su referencia de parcela."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship linking a cadastral parcel to its parcel reference."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> <http://www.w3.org/2000/01/rdf-schema#label> "has parcel reference"@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> <http://www.w3.org/2000/01/rdf-schema#label> "tiene referencia de parcela"@es .
+# 
+# http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> <http://www.w3.org/2002/07/owl#inverseOf> <http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que vincula un inmueble catastral con su referencia de inmueble."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship linking a cadastral property to its property reference."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> <http://www.w3.org/2000/01/rdf-schema#label> "has property reference"@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> <http://www.w3.org/2000/01/rdf-schema#label> "tiene referencia de inmueble"@es .
+# 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation> <http://www.w3.org/2002/07/owl#inverseOf> <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que indica que una construcción ha sufrido una o más reformas."@es .
@@ -177,16 +176,28 @@ _:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid10 .
-_:genid10 <http://www.w3.org/2002/07/owl#unionOf> _:genid12 .
-_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid11 .
-_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
-_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid11 .
+_:genid11 <http://www.w3.org/2002/07/owl#unionOf> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
 _:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse> <http://www.w3.org/2000/01/rdf-schema#range> _:genid14 .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid14 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid15 .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid16 .
+_:genid16 <http://www.w3.org/2002/07/owl#hasValue> <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso> .
+<http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2004/02/skos/core#inScheme> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/2004/02/skos/core#Concept> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que asigna un uso principal a un inmueble o construcción. Los conceptos de uso se definen en el vocabulario SKOS externo en http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship that assigns a primary use to a property or construction. Use concepts are defined in the external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse> <http://www.w3.org/2000/01/rdf-schema#label> "has use"@en .
@@ -196,14 +207,13 @@ _:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que indica que un inmueble catastral está ubicado sobre una parcela catastral específica."@es .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship indicating that a cadastral property is located on a specific cadastral parcel."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que indica que un inmueble catastral está ubicado sobre una única parcela catastral."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship indicating that a cadastral property is located on exactly one cadastral parcel."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/2000/01/rdf-schema#label> "on cadastral parcel"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> <http://www.w3.org/2000/01/rdf-schema#label> "sobre parcela catastral"@es .
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> <http://www.w3.org/2002/07/owl#inverseOf> <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que indica que una construcción catastral está ubicada sobre un inmueble catastral específico."@es .
@@ -211,15 +221,37 @@ _:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> <http://www.w3.org/2000/01/rdf-schema#label> "en inmueble catastral"@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> <http://www.w3.org/2000/01/rdf-schema#label> "on cadastral property"@en .
 # 
+# http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que indica que una referencia de parcela identifica una parcela catastral específica."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship indicating that a parcel reference identifies a specific cadastral parcel."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor> <http://www.w3.org/2000/01/rdf-schema#label> "parcel reference for"@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor> <http://www.w3.org/2000/01/rdf-schema#label> "referencia de parcela para"@es .
+# 
+# http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que indica que una referencia de inmueble identifica un inmueble catastral específico."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship indicating that a property reference identifies a specific cadastral property."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor> <http://www.w3.org/2000/01/rdf-schema#label> "property reference for"@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor> <http://www.w3.org/2000/01/rdf-schema#label> "referencia de inmueble para"@es .
+# 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relación que indica que un evento de reforma se aplica a una construcción específica."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Relationship indicating that a renovation event applies to a specific construction."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> <http://www.w3.org/2000/01/rdf-schema#label> "reforma de"@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf> <http://www.w3.org/2000/01/rdf-schema#label> "renovation of"@en .
+# 
+# http://www.opengis.net/ont/geosparql#hasGeometry
+<http://www.opengis.net/ont/geosparql#hasGeometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#inScheme
 # 
 # 
 # 
@@ -259,50 +291,42 @@ _:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid13 .
-_:genid13 <http://www.w3.org/2002/07/owl#unionOf> _:genid15 .
-_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid14 .
-_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> .
-_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
-_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#comment> "Boolean indicating whether a parcel or construction is subject to horizontal division regime."@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#comment> "Booleano que indica si una parcela o construcción está sujeta a régimen de división horizontal."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#comment> "Boolean indicating whether a cadastral property is subject to horizontal division regime."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#comment> "Booleano que indica si un inmueble catastral está sujeto a régimen de división horizontal."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#label> "has horizontal division"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision> <http://www.w3.org/2000/01/rdf-schema#label> "tiene división horizontal"@es .
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#comment> "La parte de 7 dígitos de la referencia de parcela. Formato: 7 dígitos (ej. 0569302)."@es .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#comment> "The 7-digit parcel reference part. Format: 7 digits (e.g., 0569302)."@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://www.sedecatro.gob.es> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#comment> "El código alfanumérico de 7 caracteres de la referencia de parcela (ej. 0569302VK)."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#comment> "The 7-character alphanumeric parcel reference code (e.g., 0569302VK)."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#label> "parcel reference"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#label> "referencia de parcela"@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.sedecatastro.gob.es> .
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/participation
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://qudt.org/schema/qudt/applicableUnit> <http://qudt.org/vocab/unit/PCT> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/2000/01/rdf-schema#comment> "Percentage of participation in common elements of the parcel or construction."@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/2000/01/rdf-schema#comment> "Porcentaje de participación en elementos comunes de la parcela o construcción."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://qudt.org/schema/qudt/unit> <http://qudt.org/vocab/unit/PCT> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/2000/01/rdf-schema#comment> "Percentage of participation in common elements of the property."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/2000/01/rdf-schema#comment> "Porcentaje de participación en elementos comunes del inmueble."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/2000/01/rdf-schema#label> "participación"@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/participation> <http://www.w3.org/2000/01/rdf-schema#label> "participation"@en .
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#comment> "La parte de referencia de inmueble incluyendo dígito de control. Formato: alfanumérico con control (ej. TF8006N0001HZ)."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#comment> "The property reference part including check digit. Format: alphanumeric with check (e.g., TF8006N0001HZ)."@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://www.sedecatastro.gob.es> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#label> "property reference"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#label> "referencia de inmueble"@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.sedecatastro.gob.es> .
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationDate
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -335,7 +359,7 @@ _:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage> <http://qudt.org/schema/qudt/applicableUnit> <http://qudt.org/vocab/unit/PCT> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage> <http://qudt.org/schema/qudt/unit> <http://qudt.org/vocab/unit/PCT> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage> <http://www.w3.org/2000/01/rdf-schema#comment> "Percentage of the construction area that is considered support area (common elements)."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage> <http://www.w3.org/2000/01/rdf-schema#comment> "Porcentaje del área de construcción que se considera área de soporte (elementos comunes)."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage> <http://www.w3.org/2000/01/rdf-schema#label> "porcentaje de soporte"@es .
@@ -354,18 +378,29 @@ _:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
 <http://www.opengis.net/ont/geosparql#Feature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#comment> "Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction can be associated with one or more cadastral properties."@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#comment> "Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral puede estar asociada a uno o más inmuebles catastrales."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid18 .
+_:genid18 <http://www.w3.org/2002/07/owl#onClass> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> .
+_:genid18 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid18 <http://www.w3.org/2002/07/owl#onProperty> <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#comment> "Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction is located on exactly one cadastral property."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#comment> "Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral está ubicada sobre un único inmueble catastral."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#label> "Cadastral Construction"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> <http://www.w3.org/2000/01/rdf-schema#label> "Construcción Catastral"@es .
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid16 .
-_:genid16 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> .
-_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid19 .
+_:genid19 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.opengis.net/ont/geosparql#Geometry> .
+<http://www.opengis.net/ont/geosparql#Geometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid19 <http://www.w3.org/2002/07/owl#onProperty> <http://www.opengis.net/ont/geosparql#hasGeometry> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid20 .
+_:genid20 <http://www.w3.org/2002/07/owl#onClass> <http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> .
+_:genid20 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid20 <http://www.w3.org/2002/07/owl#onProperty> <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> <http://www.w3.org/2000/01/rdf-schema#comment> "Basic unit of territorial division in the Spanish Cadastre. Represents a plot of land delimited geographically, which may contain one or more properties."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> <http://www.w3.org/2000/01/rdf-schema#comment> "Unidad básica de división territorial en el Catastro Español. Representa una porción de terreno delimitada geográficamente, que puede contener uno o más inmuebles."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> <http://www.w3.org/2000/01/rdf-schema#label> "Cadastral Parcel"@en .
@@ -374,10 +409,20 @@ _:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.opengis.net/ont/geosparql#Feature> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid17 .
-_:genid17 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:genid17 <http://www.w3.org/2002/07/owl#onProperty> <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference> .
-_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid21 .
+_:genid21 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction> .
+_:genid21 <http://www.w3.org/2002/07/owl#onProperty> <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid22 .
+_:genid22 <http://www.w3.org/2002/07/owl#onClass> <http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> .
+_:genid22 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid22 <http://www.w3.org/2002/07/owl#onProperty> <http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid23 .
+_:genid23 <http://www.w3.org/2002/07/owl#onClass> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel> .
+_:genid23 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid23 <http://www.w3.org/2002/07/owl#onProperty> <http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "Bien inmueble inscrito en el Catastro. Puede ser un local, vivienda, o cualquier unidad de uso independiente dentro de una parcela. Un inmueble catastral puede tener una o más construcciones asociadas."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "Real estate property registered in the Cadastre. Can be a premises, dwelling, or any independent use unit within a parcel. A cadastral property may have one or more constructions associated."@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Cadastral Property"@en .
@@ -385,10 +430,26 @@ _:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Complete cadastral reference composed of parcel reference and property reference."@en .
-<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Referencia catastral completa compuesta por referencia de parcela y referencia de inmueble."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract parent class for cadastral reference types."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Clase padre abstracta para los tipos de referencia catastral."@es .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> <http://www.w3.org/2000/01/rdf-schema#label> "Cadastral Reference"@en .
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> <http://www.w3.org/2000/01/rdf-schema#label> "Referencia Catastral"@es .
+# 
+# http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Reference identifying a cadastral parcel (7-character alphanumeric code)."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Referencia que identifica una parcela catastral (código alfanumérico de 7 caracteres)."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> <http://www.w3.org/2000/01/rdf-schema#label> "Parcel Reference"@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference> <http://www.w3.org/2000/01/rdf-schema#label> "Referencia de Parcela"@es .
+# 
+# http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference> .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Reference identifying a cadastral property, composed of the parcel reference and the property reference with check digit (e.g., TF8006N0001HZ)."@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> <http://www.w3.org/2000/01/rdf-schema#comment> "Referencia que identifica un inmueble catastral, compuesta por la referencia de parcela y la referencia de inmueble con dígito de control (ej. TF8006N0001HZ)."@es .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> <http://www.w3.org/2000/01/rdf-schema#label> "Property Reference"@en .
+<http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference> <http://www.w3.org/2000/01/rdf-schema#label> "Referencia de Inmueble"@es .
 # 
 # http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -398,5 +459,20 @@ _:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation> <http://www.w3.org/2000/01/rdf-schema#label> "Renovation"@en .
 # 
 # http://www.opengis.net/ont/geosparql#Feature
+# 
+# http://www.opengis.net/ont/geosparql#Geometry
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase
+# 
+# http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso
 # 
 # Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
