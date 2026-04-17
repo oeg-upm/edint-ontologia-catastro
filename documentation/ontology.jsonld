@@ -9,26 +9,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid10",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
-    "@list" : [ {
-      "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
-    }, {
-      "@id" : "_:genid12"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid12",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#hasValue" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase"
-  } ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/2004/02/skos/core#inScheme"
-  } ]
-}, {
-  "@id" : "_:genid14",
+  "@id" : "_:genid11",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -38,17 +19,17 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid17",
+  "@id" : "_:genid14",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
       "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
     }, {
-      "@id" : "_:genid19"
+      "@id" : "_:genid16"
     } ]
   } ]
 }, {
-  "@id" : "_:genid19",
+  "@id" : "_:genid16",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#hasValue" : [ {
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso"
@@ -57,17 +38,42 @@
     "@id" : "http://www.w3.org/2004/02/skos/core#inScheme"
   } ]
 }, {
-  "@id" : "_:genid21",
+  "@id" : "_:genid18",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#cardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference"
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid22",
+  "@id" : "_:genid19",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.opengis.net/ont/geosparql#hasGeometry"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "http://www.opengis.net/ont/geosparql#Geometry"
+  } ]
+}, {
+  "@id" : "_:genid20",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid21",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction"
@@ -76,14 +82,30 @@
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction"
   } ]
 }, {
-  "@id" : "_:genid23",
+  "@id" : "_:genid22",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#cardinality" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-    "@value" : "1"
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference"
   } ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference"
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid23",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
   } ]
 }, {
   "@id" : "_:genid4",
@@ -98,12 +120,21 @@
 }, {
   "@id" : "_:genid7",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+  "http://www.w3.org/2002/07/owl#intersectionOf" : [ {
     "@list" : [ {
-      "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"
+      "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
     }, {
-      "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"
+      "@id" : "_:genid9"
     } ]
+  } ]
+}, {
+  "@id" : "_:genid9",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#hasValue" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#inScheme"
   } ]
 }, {
   "@id" : "http://purl.org/dc/terms/abstract",
@@ -124,7 +155,7 @@
   "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
-  "@id" : "http://qudt.org/schema/qudt/applicableUnit",
+  "@id" : "http://qudt.org/schema/qudt/unit",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/",
@@ -141,7 +172,6 @@
     "@value" : "2026-04-09"
   } ],
   "http://purl.org/dc/terms/creator" : [ {
-    "@language" : "es",
     "@value" : "Daniel Doña"
   }, {
     "@value" : "Edna Ruckhaus"
@@ -171,7 +201,7 @@
   } ],
   "http://purl.org/dc/terms/modified" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2026-04-09"
+    "@value" : "2026-04-17"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "es",
@@ -209,10 +239,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction can be associated with one or more cadastral properties."
+    "@value" : "Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction is located on exactly one cadastral property."
   }, {
     "@language" : "es",
-    "@value" : "Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral puede estar asociada a uno o más inmuebles catastrales."
+    "@value" : "Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral está ubicada sobre un único inmueble catastral."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -223,6 +253,8 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.opengis.net/ont/geosparql#Feature"
+  }, {
+    "@id" : "_:genid18"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel",
@@ -244,7 +276,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.opengis.net/ont/geosparql#Feature"
   }, {
-    "@id" : "_:genid21"
+    "@id" : "_:genid19"
+  }, {
+    "@id" : "_:genid20"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty",
@@ -266,6 +300,8 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.opengis.net/ont/geosparql#Feature"
   }, {
+    "@id" : "_:genid21"
+  }, {
     "@id" : "_:genid22"
   }, {
     "@id" : "_:genid23"
@@ -275,10 +311,10 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Complete cadastral reference composed of parcel reference and property reference."
+    "@value" : "Abstract parent class for cadastral reference types."
   }, {
     "@language" : "es",
-    "@value" : "Referencia catastral completa compuesta por referencia de parcela y referencia de inmueble."
+    "@value" : "Clase padre abstracta para los tipos de referencia catastral."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -286,6 +322,46 @@
   }, {
     "@language" : "es",
     "@value" : "Referencia Catastral"
+  } ]
+}, {
+  "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Reference identifying a cadastral parcel (7-character alphanumeric code)."
+  }, {
+    "@language" : "es",
+    "@value" : "Referencia que identifica una parcela catastral (código alfanumérico de 7 caracteres)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Parcel Reference"
+  }, {
+    "@language" : "es",
+    "@value" : "Referencia de Parcela"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"
+  } ]
+}, {
+  "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Reference identifying a cadastral property, composed of the parcel reference and the property reference with check digit (e.g., TF8006N0001HZ)."
+  }, {
+    "@language" : "es",
+    "@value" : "Referencia que identifica un inmueble catastral, compuesta por la referencia de parcela y la referencia de inmueble con dígito de control (ej. TF8006N0001HZ)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Property Reference"
+  }, {
+    "@language" : "es",
+    "@value" : "Referencia de Inmueble"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation",
@@ -386,9 +462,6 @@
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "_:genid1"
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero"
-  } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "has address"
@@ -421,6 +494,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty",
@@ -449,29 +525,6 @@
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel"
   } ]
 }, {
-  "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "es",
-    "@value" : "Relación que vincula una entidad catastral con su referencia catastral completa."
-  }, {
-    "@language" : "en",
-    "@value" : "Relationship linking a cadastral entity to its complete cadastral reference."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid4"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has cadastral reference"
-  }, {
-    "@language" : "es",
-    "@value" : "tiene referencia catastral"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"
-  } ]
-}, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -482,7 +535,7 @@
     "@value" : "Relationship that assigns a classification (urban/rural) to a parcel or property. Classification concepts are defined in external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid7"
+    "@id" : "_:genid4"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -492,7 +545,7 @@
     "@value" : "tiene clase"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid10"
+    "@id" : "_:genid7"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision",
@@ -518,6 +571,58 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#boolean"
   } ]
 }, {
+  "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Relación que vincula una parcela catastral con su referencia de parcela."
+  }, {
+    "@language" : "en",
+    "@value" : "Relationship linking a cadastral parcel to its parcel reference."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has parcel reference"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene referencia de parcela"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor"
+  } ]
+}, {
+  "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Relación que vincula un inmueble catastral con su referencia de inmueble."
+  }, {
+    "@language" : "en",
+    "@value" : "Relationship linking a cadastral property to its property reference."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has property reference"
+  }, {
+    "@language" : "es",
+    "@value" : "tiene referencia de inmueble"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor"
+  } ]
+}, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -539,6 +644,9 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse",
@@ -551,7 +659,7 @@
     "@value" : "Relationship that assigns a primary use to a property or construction. Use concepts are defined in the external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "_:genid14"
+    "@id" : "_:genid11"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -561,17 +669,17 @@
     "@value" : "tiene uso"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid17"
+    "@id" : "_:genid14"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
-    "@value" : "Relación que indica que un inmueble catastral está ubicado sobre una parcela catastral específica."
+    "@value" : "Relación que indica que un inmueble catastral está ubicado sobre una única parcela catastral."
   }, {
     "@language" : "en",
-    "@value" : "Relationship indicating that a cadastral property is located on a specific cadastral parcel."
+    "@value" : "Relationship indicating that a cadastral property is located on exactly one cadastral parcel."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"
@@ -608,25 +716,19 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "es",
-    "@value" : "La parte de 7 dígitos de la referencia de parcela. Formato: 7 dígitos (ej. 0569302)."
+    "@value" : "El código alfanumérico de 7 caracteres de la referencia de parcela (ej. 0569302VK)."
   }, {
     "@language" : "en",
-    "@value" : "The 7-digit parcel reference part. Format: 7 digits (e.g., 0569302)."
+    "@value" : "The 7-character alphanumeric parcel reference code (e.g., 0569302VK)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://www.sedecatastro.gob.es"
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -637,11 +739,37 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
+    "@id" : "https://www.sedecatastro.gob.es"
+  } ]
+}, {
+  "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Relación que indica que una referencia de parcela identifica una parcela catastral específica."
+  }, {
+    "@language" : "en",
+    "@value" : "Relationship indicating that a parcel reference identifies a specific cadastral parcel."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "parcel reference for"
+  }, {
+    "@language" : "es",
+    "@value" : "referencia de parcela para"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/participation",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://qudt.org/schema/qudt/applicableUnit" : [ {
+  "http://qudt.org/schema/qudt/unit" : [ {
     "@id" : "http://qudt.org/vocab/unit/PCT"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -675,10 +803,7 @@
     "@value" : "The property reference part including check digit. Format: alphanumeric with check (e.g., TF8006N0001HZ)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://www.sedecatastro.gob.es"
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -689,6 +814,32 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
+    "@id" : "https://www.sedecatastro.gob.es"
+  } ]
+}, {
+  "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "es",
+    "@value" : "Relación que indica que una referencia de inmueble identifica un inmueble catastral específico."
+  }, {
+    "@language" : "en",
+    "@value" : "Relationship indicating that a property reference identifies a specific cadastral property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "property reference for"
+  }, {
+    "@language" : "es",
+    "@value" : "referencia de inmueble para"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationDate",
@@ -735,9 +886,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation"
   } ]
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationType",
@@ -788,7 +936,7 @@
 }, {
   "@id" : "http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://qudt.org/schema/qudt/applicableUnit" : [ {
+  "http://qudt.org/schema/qudt/unit" : [ {
     "@id" : "http://qudt.org/vocab/unit/PCT"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -820,6 +968,12 @@
 }, {
   "@id" : "http://www.opengis.net/ont/geosparql#Feature",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.opengis.net/ont/geosparql#Geometry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.opengis.net/ont/geosparql#hasGeometry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
 }, {
   "@id" : "http://www.w3.org/2001/XMLSchema#date",
   "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]

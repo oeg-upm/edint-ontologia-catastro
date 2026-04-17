@@ -18,7 +18,7 @@
         <terms:abstract xml:lang="en">Ontology for modeling Spanish Cadastre core entities (Parcels, Properties, Buildings) with their spatial, administrative, and descriptive attributes.</terms:abstract>
         <terms:abstract xml:lang="es">Ontología para modelar las entidades core del Catastro Español (Parcelas, Inmuebles, Construcciones) con sus atributos espaciales, administrativos y descriptivos.</terms:abstract>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-09</terms:created>
-        <terms:creator xml:lang="es">Daniel Doña</terms:creator>
+        <terms:creator>Daniel Doña</terms:creator>
         <terms:creator>Edna Ruckhaus</terms:creator>
         <terms:creator>Lucía Sánchez</terms:creator>
         <terms:creator>Maria del Socorro Bernardos</terms:creator>
@@ -28,7 +28,7 @@
         <terms:hasFormat rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/ontology.owl"/>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-09</terms:issued>
         <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-09</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-17</terms:modified>
         <terms:title xml:lang="es">Ontología del Catastro Español</terms:title>
         <terms:title xml:lang="en">Spanish Cadastre Ontology</terms:title>
         <vann:preferredNamespacePrefix>edintcat</vann:preferredNamespacePrefix>
@@ -94,10 +94,10 @@
     
 
 
-    <!-- http://qudt.org/schema/qudt/applicableUnit -->
+    <!-- http://qudt.org/schema/qudt/unit -->
 
 
-    <owl:AnnotationProperty rdf:about="http://qudt.org/schema/qudt/applicableUnit"/>
+    <owl:AnnotationProperty rdf:about="http://qudt.org/schema/qudt/unit"/>
     
 
 
@@ -154,7 +154,6 @@
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#Portal"/>
         <rdfs:comment xml:lang="es">Relación que vincula un inmueble o parcela con su dirección en el vocabulario callejero. A través de esta relación, se puede obtener información de ubicación (municipio, provincia, código postal) del Portal enlazado.</rdfs:comment>
         <rdfs:comment xml:lang="en">Relationship linking a property or parcel to its address in the callejero vocabulary. Through this relationship, location information (municipality, province, postal code) can be obtained from the linked callejero:Portal.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero"/>
         <rdfs:label xml:lang="en">has address</rdfs:label>
         <rdfs:label xml:lang="es">tiene dirección</rdfs:label>
     </owl:ObjectProperty>
@@ -165,6 +164,7 @@
 
 
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">
+        <owl:inverseOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty"/>
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"/>
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction"/>
         <rdfs:comment xml:lang="es">Relación que indica las unidades constructivas específicas (locales/partes) que conforman un inmueble catastral.</rdfs:comment>
@@ -186,27 +186,6 @@
         <rdfs:comment xml:lang="en">Relationship indicating that a cadastral parcel contains one or more cadastral properties (e.g., flats in a horizontal division).</rdfs:comment>
         <rdfs:label xml:lang="en">has cadastral property</rdfs:label>
         <rdfs:label xml:lang="es">tiene inmueble catastral</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference -->
-
-
-    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"/>
-                    <rdf:Description rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"/>
-        <rdfs:comment xml:lang="es">Relación que vincula una entidad catastral con su referencia catastral completa.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Relationship linking a cadastral entity to its complete cadastral reference.</rdfs:comment>
-        <rdfs:label xml:lang="en">has cadastral reference</rdfs:label>
-        <rdfs:label xml:lang="es">tiene referencia catastral</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -242,10 +221,41 @@
     
 
 
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference -->
+
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference">
+        <owl:inverseOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor"/>
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"/>
+        <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference"/>
+        <rdfs:comment xml:lang="es">Relación que vincula una parcela catastral con su referencia de parcela.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship linking a cadastral parcel to its parcel reference.</rdfs:comment>
+        <rdfs:label xml:lang="en">has parcel reference</rdfs:label>
+        <rdfs:label xml:lang="es">tiene referencia de parcela</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference -->
+
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference">
+        <owl:inverseOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor"/>
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"/>
+        <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference"/>
+        <rdfs:comment xml:lang="es">Relación que vincula un inmueble catastral con su referencia de inmueble.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship linking a cadastral property to its property reference.</rdfs:comment>
+        <rdfs:label xml:lang="en">has property reference</rdfs:label>
+        <rdfs:label xml:lang="es">tiene referencia de inmueble</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation -->
 
 
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation">
+        <owl:inverseOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf"/>
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction"/>
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation"/>
         <rdfs:comment xml:lang="es">Relación que indica que una construcción ha sufrido una o más reformas.</rdfs:comment>
@@ -293,8 +303,8 @@
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"/>
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"/>
-        <rdfs:comment xml:lang="es">Relación que indica que un inmueble catastral está ubicado sobre una parcela catastral específica.</rdfs:comment>
-        <rdfs:comment xml:lang="en">Relationship indicating that a cadastral property is located on a specific cadastral parcel.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Relación que indica que un inmueble catastral está ubicado sobre una única parcela catastral.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship indicating that a cadastral property is located on exactly one cadastral parcel.</rdfs:comment>
         <rdfs:label xml:lang="en">on cadastral parcel</rdfs:label>
         <rdfs:label xml:lang="es">sobre parcela catastral</rdfs:label>
     </owl:ObjectProperty>
@@ -305,7 +315,6 @@
 
 
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty">
-        <owl:inverseOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction"/>
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction"/>
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"/>
         <rdfs:comment xml:lang="es">Relación que indica que una construcción catastral está ubicada sobre un inmueble catastral específico.</rdfs:comment>
@@ -316,11 +325,38 @@
     
 
 
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor -->
+
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor">
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference"/>
+        <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"/>
+        <rdfs:comment xml:lang="es">Relación que indica que una referencia de parcela identifica una parcela catastral específica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship indicating that a parcel reference identifies a specific cadastral parcel.</rdfs:comment>
+        <rdfs:label xml:lang="en">parcel reference for</rdfs:label>
+        <rdfs:label xml:lang="es">referencia de parcela para</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor -->
+
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor">
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference"/>
+        <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"/>
+        <rdfs:comment xml:lang="es">Relación que indica que una referencia de inmueble identifica un inmueble catastral específico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship indicating that a property reference identifies a specific cadastral property.</rdfs:comment>
+        <rdfs:label xml:lang="en">property reference for</rdfs:label>
+        <rdfs:label xml:lang="es">referencia de inmueble para</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf -->
 
 
     <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf">
-        <owl:inverseOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation"/>
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation"/>
         <rdfs:range rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction"/>
         <rdfs:comment xml:lang="es">Relación que indica que un evento de reforma se aplica a una construcción específica.</rdfs:comment>
@@ -328,6 +364,13 @@
         <rdfs:label xml:lang="es">reforma de</rdfs:label>
         <rdfs:label xml:lang="en">renovation of</rdfs:label>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry"/>
     
 
 
@@ -410,13 +453,13 @@
 
 
     <owl:DatatypeProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference">
-        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"/>
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="es">La parte de 7 dígitos de la referencia de parcela. Formato: 7 dígitos (ej. 0569302).</rdfs:comment>
-        <rdfs:comment xml:lang="en">The 7-digit parcel reference part. Format: 7 digits (e.g., 0569302).</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://www.sedecatastro.gob.es"/>
+        <rdfs:comment xml:lang="es">El código alfanumérico de 7 caracteres de la referencia de parcela (ej. 0569302VK).</rdfs:comment>
+        <rdfs:comment xml:lang="en">The 7-character alphanumeric parcel reference code (e.g., 0569302VK).</rdfs:comment>
         <rdfs:label xml:lang="en">parcel reference</rdfs:label>
         <rdfs:label xml:lang="es">referencia de parcela</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://www.sedecatastro.gob.es"/>
     </owl:DatatypeProperty>
     
 
@@ -427,7 +470,7 @@
     <owl:DatatypeProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/participation">
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-        <qudt:applicableUnit rdf:resource="http://qudt.org/vocab/unit/PCT"/>
+        <qudt:unit rdf:resource="http://qudt.org/vocab/unit/PCT"/>
         <rdfs:comment xml:lang="en">Percentage of participation in common elements of the property.</rdfs:comment>
         <rdfs:comment xml:lang="es">Porcentaje de participación en elementos comunes del inmueble.</rdfs:comment>
         <rdfs:label xml:lang="es">participación</rdfs:label>
@@ -440,13 +483,13 @@
 
 
     <owl:DatatypeProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference">
-        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"/>
+        <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="es">La parte de referencia de inmueble incluyendo dígito de control. Formato: alfanumérico con control (ej. TF8006N0001HZ).</rdfs:comment>
         <rdfs:comment xml:lang="en">The property reference part including check digit. Format: alphanumeric with check (e.g., TF8006N0001HZ).</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://www.sedecatastro.gob.es"/>
         <rdfs:label xml:lang="en">property reference</rdfs:label>
         <rdfs:label xml:lang="es">referencia de inmueble</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://www.sedecatastro.gob.es"/>
     </owl:DatatypeProperty>
     
 
@@ -499,7 +542,7 @@
     <owl:DatatypeProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/supportPercentage">
         <rdfs:domain rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-        <qudt:applicableUnit rdf:resource="http://qudt.org/vocab/unit/PCT"/>
+        <qudt:unit rdf:resource="http://qudt.org/vocab/unit/PCT"/>
         <rdfs:comment xml:lang="en">Percentage of the construction area that is considered support area (common elements).</rdfs:comment>
         <rdfs:comment xml:lang="es">Porcentaje del área de construcción que se considera área de soporte (elementos comunes).</rdfs:comment>
         <rdfs:label xml:lang="es">porcentaje de soporte</rdfs:label>
@@ -525,8 +568,15 @@
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
-        <rdfs:comment xml:lang="en">Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction can be associated with one or more cadastral properties.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral puede estar asociada a uno o más inmuebles catastrales.</rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction is located on exactly one cadastral property.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral está ubicada sobre un único inmueble catastral.</rdfs:comment>
         <rdfs:label xml:lang="en">Cadastral Construction</rdfs:label>
         <rdfs:label xml:lang="es">Construcción Catastral</rdfs:label>
     </owl:Class>
@@ -540,8 +590,15 @@
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+                <owl:someValuesFrom rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Basic unit of territorial division in the Spanish Cadastre. Represents a plot of land delimited geographically, which may contain one or more properties.</rdfs:comment>
@@ -565,8 +622,16 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:onProperty rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="es">Bien inmueble inscrito en el Catastro. Puede ser un local, vivienda, o cualquier unidad de uso independiente dentro de una parcela. Un inmueble catastral puede tener una o más construcciones asociadas.</rdfs:comment>
@@ -581,10 +646,36 @@
 
 
     <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">
-        <rdfs:comment xml:lang="en">Complete cadastral reference composed of parcel reference and property reference.</rdfs:comment>
-        <rdfs:comment xml:lang="es">Referencia catastral completa compuesta por referencia de parcela y referencia de inmueble.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Abstract parent class for cadastral reference types.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Clase padre abstracta para los tipos de referencia catastral.</rdfs:comment>
         <rdfs:label xml:lang="en">Cadastral Reference</rdfs:label>
         <rdfs:label xml:lang="es">Referencia Catastral</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference -->
+
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference">
+        <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"/>
+        <rdfs:comment xml:lang="en">Reference identifying a cadastral parcel (7-character alphanumeric code).</rdfs:comment>
+        <rdfs:comment xml:lang="es">Referencia que identifica una parcela catastral (código alfanumérico de 7 caracteres).</rdfs:comment>
+        <rdfs:label xml:lang="en">Parcel Reference</rdfs:label>
+        <rdfs:label xml:lang="es">Referencia de Parcela</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference -->
+
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference">
+        <rdfs:subClassOf rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference"/>
+        <rdfs:comment xml:lang="en">Reference identifying a cadastral property, composed of the parcel reference and the property reference with check digit (e.g., TF8006N0001HZ).</rdfs:comment>
+        <rdfs:comment xml:lang="es">Referencia que identifica un inmueble catastral, compuesta por la referencia de parcela y la referencia de inmueble con dígito de control (ej. TF8006N0001HZ).</rdfs:comment>
+        <rdfs:label xml:lang="en">Property Reference</rdfs:label>
+        <rdfs:label xml:lang="es">Referencia de Inmueble</rdfs:label>
     </owl:Class>
     
 
@@ -605,6 +696,13 @@
 
 
     <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry"/>
     
 
 

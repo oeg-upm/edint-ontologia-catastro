@@ -7,13 +7,15 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <li><a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Inmueble Catastral</a></li>
   <li><a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Parcela Catastral</a></li>
   <li><a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Referencia Catastral</a></li>
+  <li><a href="#PropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference">Referencia de Inmueble</a></li>
+  <li><a href="#ParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference">Referencia de Parcela</a></li>
   <li><a href="#Renovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/Renovation">Reforma</a></li>
  </ul>
  <div class="entity" id="CadastralConstruction">
   <h3>Construcción Catastral<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
   <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralConstruction</p>
   <div class="comment">
-   <span class="markdown">Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral puede estar asociada a uno o más inmuebles catastrales.</span>
+   <span class="markdown">Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral está ubicada sobre un único inmueble catastral.</span>
   </div>
   <dl class="description">
    <dt>
@@ -53,13 +55,13 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
     en dominio de
    </dt>
    <dd>
-    <a href="#participation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/participation">participación</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">sobre parcela catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasClass" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass">tiene clase</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasCadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">tiene construcción catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasAddress" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress">tiene dirección</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasHorizontalDivision" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision">tiene división horizontal</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#hasCadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">tiene referencia catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasUse" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse">tiene uso</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    <a href="#participation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/participation">participación</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">sobre parcela catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasClass" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass">tiene clase</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasCadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">tiene construcción catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasAddress" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress">tiene dirección</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasHorizontalDivision" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasHorizontalDivision">tiene división horizontal</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#hasPropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference">tiene referencia de inmueble</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasUse" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse">tiene uso</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
    </dd>
    <dt>
     en rango de
    </dt>
    <dd>
-    <a href="#onCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty">en inmueble catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">tiene inmueble catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    <a href="#onCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty">en inmueble catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#propertyReferenceFor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor">referencia de inmueble para</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">tiene inmueble catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
    </dd>
   </dl>
  </div>
@@ -80,13 +82,13 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
     en dominio de
    </dt>
    <dd>
-    <a href="#hasClass" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass">tiene clase</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasAddress" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress">tiene dirección</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">tiene inmueble catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasCadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">tiene referencia catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    <a href="#hasClass" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass">tiene clase</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasAddress" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress">tiene dirección</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">tiene inmueble catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#hasParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference">tiene referencia de parcela</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
    </dd>
    <dt>
     en rango de
    </dt>
    <dd>
-    <a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">sobre parcela catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    <a href="#parcelReferenceFor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor">referencia de parcela para</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>, <a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">sobre parcela catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
    </dd>
   </dl>
  </div>
@@ -94,20 +96,68 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <h3>Referencia Catastral<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
   <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference</p>
   <div class="comment">
-   <span class="markdown">Referencia catastral completa compuesta por referencia de parcela y referencia de inmueble.</span>
+   <span class="markdown">Clase padre abstracta para los tipos de referencia catastral.</span>
   </div>
   <dl class="description">
+   <dt>
+    tiene subclases
+   </dt>
+   <dd>
+    <a href="#PropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference">Referencia de Inmueble</a> <sup class="type-c" title="clase">c</sup>, <a href="#ParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference">Referencia de Parcela</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PropertyReference">
+  <h3>Referencia de Inmueble<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference</p>
+  <div class="comment">
+   <span class="markdown">Referencia que identifica un inmueble catastral, compuesta por la referencia de parcela y la referencia de inmueble con dígito de control (ej. TF8006N0001HZ).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Referencia Catastral</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
    <dt>
     en dominio de
    </dt>
    <dd>
-    <a href="#propertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference">referencia de inmueble</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#parcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference">referencia de parcela</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>
+    <a href="#propertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReference">referencia de inmueble</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#propertyReferenceFor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor">referencia de inmueble para</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
    </dd>
    <dt>
     en rango de
    </dt>
    <dd>
-    <a href="#hasCadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">tiene referencia catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    <a href="#hasPropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference">tiene referencia de inmueble</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ParcelReference">
+  <h3>Referencia de Parcela<sup class="type-c" title="clase">c</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#classes">Índice de clases</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference</p>
+  <div class="comment">
+   <span class="markdown">Referencia que identifica una parcela catastral (código alfanumérico de 7 caracteres).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    tiene superclases
+   </dt>
+   <dd>
+    <a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Referencia Catastral</a> <sup class="type-c" title="clase">c</sup>
+   </dd>
+   <dt>
+    en dominio de
+   </dt>
+   <dd>
+    <a href="#parcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference">referencia de parcela</a> <sup class="type-dp" title="Propiedad de datos">dp</sup>, <a href="#parcelReferenceFor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor">referencia de parcela para</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+   </dd>
+   <dt>
+    en rango de
+   </dt>
+   <dd>
+    <a href="#hasParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference">tiene referencia de parcela</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
    </dd>
   </dl>
  </div>
@@ -136,13 +186,16 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
  <h2>Propiedades entre objetos</h2>
  <ul class="hlist">
   <li><a href="#onCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralProperty">en inmueble catastral</a></li>
+  <li><a href="#propertyReferenceFor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor">referencia de inmueble para</a></li>
+  <li><a href="#parcelReferenceFor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor">referencia de parcela para</a></li>
   <li><a href="#renovationOf" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/renovationOf">reforma de</a></li>
   <li><a href="#onCadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel">sobre parcela catastral</a></li>
   <li><a href="#hasClass" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasClass">tiene clase</a></li>
   <li><a href="#hasCadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">tiene construcción catastral</a></li>
   <li><a href="#hasAddress" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasAddress">tiene dirección</a></li>
   <li><a href="#hasCadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralProperty">tiene inmueble catastral</a></li>
-  <li><a href="#hasCadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference">tiene referencia catastral</a></li>
+  <li><a href="#hasPropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference">tiene referencia de inmueble</a></li>
+  <li><a href="#hasParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference">tiene referencia de parcela</a></li>
   <li><a href="#hasRenovation" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasRenovation">tiene reforma</a></li>
   <li><a href="#hasUse" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasUse">tiene uso</a></li>
  </ul>
@@ -171,6 +224,64 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
     </dt>
     <dd>
      <a href="#hasCadastralConstruction" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralConstruction">tiene construcción catastral</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="propertyReferenceFor">
+  <h3>referencia de inmueble para<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor</p>
+  <div class="comment">
+   <span class="markdown">Relación que indica que una referencia de inmueble identifica un inmueble catastral específico.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#PropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference">Referencia de Inmueble</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Inmueble Catastral</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     inversa de
+    </dt>
+    <dd>
+     <a href="#hasPropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference">tiene referencia de inmueble</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="parcelReferenceFor">
+  <h3>referencia de parcela para<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor</p>
+  <div class="comment">
+   <span class="markdown">Relación que indica que una referencia de parcela identifica una parcela catastral específica.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#ParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference">Referencia de Parcela</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Parcela Catastral</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     inversa de
+    </dt>
+    <dd>
+     <a href="#hasParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference">tiene referencia de parcela</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
     </dd>
    </dl>
   </div>
@@ -208,7 +319,7 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <h3>sobre parcela catastral<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
   <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/onCadastralParcel</p>
   <div class="comment">
-   <span class="markdown">Relación que indica que un inmueble catastral está ubicado sobre una parcela catastral específica.</span>
+   <span class="markdown">Relación que indica que un inmueble catastral está ubicado sobre una única parcela catastral.</span>
   </div>
   <div class="description">
    <dl>
@@ -291,14 +402,6 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <div class="comment">
    <span class="markdown">Relación que vincula un inmueble o parcela con su dirección en el vocabulario callejero. A través de esta relación, se puede obtener información de ubicación (municipio, provincia, código postal) del Portal enlazado.</span>
   </div>
-  <dl class="definedBy">
-   <dt>
-    Definida por
-   </dt>
-   <dd>
-    <a href="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero">http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero</a>
-   </dd>
-  </dl>
   <div class="description">
    <dl>
     <dt>
@@ -345,11 +448,11 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
    </dl>
   </div>
  </div>
- <div class="entity" id="hasCadastralReference">
-  <h3>tiene referencia catastral<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
-  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasCadastralReference</p>
+ <div class="entity" id="hasPropertyReference">
+  <h3>tiene referencia de inmueble<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasPropertyReference</p>
   <div class="comment">
-   <span class="markdown">Relación que vincula una entidad catastral con su referencia catastral completa.</span>
+   <span class="markdown">Relación que vincula un inmueble catastral con su referencia de inmueble.</span>
   </div>
   <div class="description">
    <dl>
@@ -357,13 +460,48 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
      dominio
     </dt>
     <dd>
-     <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Parcela Catastral</a> <sup class="type-c" title="clase">c</sup> <span class="logic">or</span> <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Inmueble Catastral</a> <sup class="type-c" title="clase">c</sup>
+     <a href="#CadastralProperty" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralProperty">Inmueble Catastral</a> <sup class="type-c" title="clase">c</sup>
     </dd>
     <dt>
      rango
     </dt>
     <dd>
-     <a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Referencia Catastral</a> <sup class="type-c" title="clase">c</sup>
+     <a href="#PropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference">Referencia de Inmueble</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     inversa de
+    </dt>
+    <dd>
+     <a href="#propertyReferenceFor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/propertyReferenceFor">referencia de inmueble para</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasParcelReference">
+  <h3>tiene referencia de parcela<sup class="type-op" title="Propiedad entre objetos">op</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#objectproperties">Índice de propiedades de objetos</a> </span></h3>
+  <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/hasParcelReference</p>
+  <div class="comment">
+   <span class="markdown">Relación que vincula una parcela catastral con su referencia de parcela.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     dominio
+    </dt>
+    <dd>
+     <a href="#CadastralParcel" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralParcel">Parcela Catastral</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     rango
+    </dt>
+    <dd>
+     <a href="#ParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference">Referencia de Parcela</a> <sup class="type-c" title="clase">c</sup>
+    </dd>
+    <dt>
+     inversa de
+    </dt>
+    <dd>
+     <a href="#parcelReferenceFor" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReferenceFor">referencia de parcela para</a> <sup class="type-op" title="Propiedad entre objetos">op</sup>
     </dd>
    </dl>
   </div>
@@ -602,21 +740,13 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <div class="comment">
    <span class="markdown">La parte de referencia de inmueble incluyendo dígito de control. Formato: alfanumérico con control (ej. TF8006N0001HZ).</span>
   </div>
-  <dl class="definedBy">
-   <dt>
-    Definida por
-   </dt>
-   <dd>
-    <a href="https://www.sedecatastro.gob.es">https://www.sedecatastro.gob.es</a>
-   </dd>
-  </dl>
   <div class="description">
    <dl>
     <dt>
      dominio
     </dt>
     <dd>
-     <a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Referencia Catastral</a> <sup class="type-c" title="clase">c</sup>
+     <a href="#PropertyReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/PropertyReference">Referencia de Inmueble</a> <sup class="type-c" title="clase">c</sup>
     </dd>
     <dt>
      rango
@@ -631,23 +761,15 @@ Esta secci&oacute;n introduce m&aacute;s detalles sobre cada clase y propiedad d
   <h3>referencia de parcela<sup class="type-dp" title="Propiedad de datos">dp</sup> <span class="backlink"> Volver a <a href="#toc">índice</a> o <a href="#dataproperties">Índice de propiedades de datos</a> </span></h3>
   <p><strong>IRI:</strong> http://vocab.linkeddata.es/datosabiertos/def/catastro/parcelReference</p>
   <div class="comment">
-   <span class="markdown">La parte de 7 dígitos de la referencia de parcela. Formato: 7 dígitos (ej. 0569302).</span>
+   <span class="markdown">El código alfanumérico de 7 caracteres de la referencia de parcela (ej. 0569302VK).</span>
   </div>
-  <dl class="definedBy">
-   <dt>
-    Definida por
-   </dt>
-   <dd>
-    <a href="https://www.sedecatastro.gob.es">https://www.sedecatastro.gob.es</a>
-   </dd>
-  </dl>
   <div class="description">
    <dl>
     <dt>
      dominio
     </dt>
     <dd>
-     <a href="#CadastralReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/CadastralReference">Referencia Catastral</a> <sup class="type-c" title="clase">c</sup>
+     <a href="#ParcelReference" title="http://vocab.linkeddata.es/datosabiertos/def/catastro/ParcelReference">Referencia de Parcela</a> <sup class="type-c" title="clase">c</sup>
     </dd>
     <dt>
      rango
