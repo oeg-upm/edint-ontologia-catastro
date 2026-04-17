@@ -11,6 +11,7 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix qudtunit: <http://qudt.org/vocab/unit/> .
 @prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 
 # =============================================================================
 # ONTOLOGY METADATA
@@ -23,6 +24,7 @@
     dcterms:title "Ontología del Catastro Español"@es ;
     dcterms:description "Ontology for modeling Spanish Cadastre entities, focused on Parcels, Properties and Buildings. Reuses GeoSPARQL, INSPIRE concepts, and the Spanish street catalog (callejero) vocabulary."@en ;
     dcterms:description "Ontología para modelar las entidades del Catastro Español, centrada en Parcelas, Inmuebles y Construcciones. Reutiliza GeoSPARQL, conceptos INSPIRE y el vocabulario de callejero español."@es ;
+    dcterms:issued "2026-04-09"^^xsd:date ;
     dcterms:created "2026-04-09"^^xsd:date ;
     dcterms:modified "2026-04-09"^^xsd:date ;
     dcterms:creator "Daniel Doña"@es ,
@@ -30,7 +32,9 @@
                     "Lucía Sánchez" ,
                     "Maria del Socorro Bernardos" ,
                     "Oscar Corcho" ;
-    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:hasFormat <http://vocab.linkeddata.es/datosabiertos/def/catastro/ontology.owl> ;
+    dcterms:abstract "Ontology for modeling Spanish Cadastre core entities (Parcels, Properties, Buildings) with their spatial, administrative, and descriptive attributes."@en ,
+                "Ontología para modelar las entidades core del Catastro Español (Parcelas, Inmuebles, Construcciones) con sus atributos espaciales, administrativos y descriptivos."@es ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     owl:imports <http://www.opengis.net/ont/geosparql> ,
                 <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero> ;
@@ -38,20 +42,6 @@
     rdfs:comment "Versión inicial centrada en las clases principales: ParcelaCatastral, Inmueble y Construcción con sus relaciones y propiedades."@es ;
     vann:preferredNamespaceUri "http://vocab.linkeddata.es/datosabiertos/def/catastro/" ;
     vann:preferredNamespacePrefix "edintcat" .
-
-dcterms:contributor a owl:AnnotationProperty .
-dcterms:created a owl:AnnotationProperty .
-dcterms:creator a owl:AnnotationProperty .
-dcterms:description a owl:AnnotationProperty .
-dcterms:license a owl:AnnotationProperty .
-dcterms:modified a owl:AnnotationProperty .
-dcterms:source a owl:AnnotationProperty .
-dcterms:title a owl:AnnotationProperty .
-vann:preferredNamespacePrefix a owl:AnnotationProperty .
-vann:preferredNamespaceUri a owl:AnnotationProperty .
-owl:versionIRI a owl:AnnotationProperty .
-owl:versionInfo a owl:AnnotationProperty .
-cc:license a owl:AnnotationProperty .
 
 # =============================================================================
 # CLASSES
@@ -83,6 +73,11 @@ edintcat:CadastralProperty
         a owl:Restriction ;
         owl:onProperty edintcat:hasCadastralReference ;
         owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty edintcat:hasCadastralConstruction ;
+        owl:someValuesFrom edintcat:CadastralConstruction
     ] .
 
 edintcat:CadastralReference
@@ -168,13 +163,10 @@ edintcat:hasHorizontalDivision
     a owl:DatatypeProperty ;
     rdfs:label "has horizontal division"@en ;
     rdfs:label "tiene división horizontal"@es ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (edintcat:CadastralParcel edintcat:CadastralConstruction) ;
-    ] ;
+    rdfs:domain edintcat:CadastralProperty ;
     rdfs:range xsd:boolean ;
-    rdfs:comment "Boolean indicating whether a parcel or construction is subject to horizontal division regime."@en ;
-    rdfs:comment "Booleano que indica si una parcela o construcción está sujeta a régimen de división horizontal."@es .
+    rdfs:comment "Boolean indicating whether a cadastral property is subject to horizontal division regime."@en ;
+    rdfs:comment "Booleano que indica si un inmueble catastral está sujeto a régimen de división horizontal."@es .
 
 
 edintcat:hasAddress
@@ -201,7 +193,15 @@ edintcat:hasUse
         a owl:Class ;
         owl:unionOf (edintcat:CadastralProperty edintcat:CadastralConstruction) ;
     ] ;
-    rdfs:range skos:Concept ;
+    rdfs:range [
+        owl:intersectionOf ( skos:Concept
+            [ a owl:Restriction ;
+              owl:onProperty skos:inScheme ;
+              owl:hasValue <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso>
+            ]
+        ) ;
+        rdf:type owl:Class
+    ] ;
     rdfs:comment "Relationship that assigns a primary use to a property or construction. Use concepts are defined in the external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso."@en ;
     rdfs:comment "Relación que asigna un uso principal a un inmueble o construcción. Los conceptos de uso se definen en el vocabulario SKOS externo en http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso."@es .
 
@@ -213,7 +213,15 @@ edintcat:hasClass
         a owl:Class ;
         owl:unionOf (edintcat:CadastralParcel edintcat:CadastralProperty) ;
     ] ;
-    rdfs:range skos:Concept ;
+    rdfs:range [
+        owl:intersectionOf ( skos:Concept
+            [ a owl:Restriction ;
+              owl:onProperty skos:inScheme ;
+              owl:hasValue <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase>
+            ]
+        ) ;
+        rdf:type owl:Class
+    ] ;
     rdfs:comment "Relationship that assigns a classification (urban/rural) to a parcel or property. Classification concepts are defined in external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase."@en ;
     rdfs:comment "Relación que asigna una clasificación (urbano/rústico) a una parcela o inmueble. Los conceptos de clasificación se definen en el vocabulario SKOS externo en http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/clase."@es .
 
@@ -269,7 +277,7 @@ edintcat:parcelReference
     rdfs:range xsd:string ;
     rdfs:comment "The 7-digit parcel reference part. Format: 7 digits (e.g., 0569302)."@en ;
     rdfs:comment "La parte de 7 dígitos de la referencia de parcela. Formato: 7 dígitos (ej. 0569302)."@es ;
-    rdfs:isDefinedBy <https://www.sedecatro.gob.es> .
+    rdfs:isDefinedBy <https://www.sedecatastro.gob.es> .
 
 edintcat:propertyReference
     a owl:DatatypeProperty ;
@@ -288,8 +296,8 @@ edintcat:participation
     rdfs:domain edintcat:CadastralProperty ;
     rdfs:range xsd:decimal ;
     qudt:applicableUnit qudtunit:PCT ;
-    rdfs:comment "Percentage of participation in common elements of the parcel or construction."@en ;
-    rdfs:comment "Porcentaje de participación en elementos comunes de la parcela o construcción."@es .
+    rdfs:comment "Percentage of participation in common elements of the property."@en ;
+    rdfs:comment "Porcentaje de participación en elementos comunes del inmueble."@es .
 
 edintcat:supportPercentage
     a owl:DatatypeProperty ;
