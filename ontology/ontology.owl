@@ -224,13 +224,13 @@ edintcat:hasUse
         owl:unionOf (edintcat:CadastralProperty edintcat:CadastralConstruction) ;
     ] ;
     rdfs:range [
+        a owl:Class ;
         owl:intersectionOf ( skos:Concept
             [ a owl:Restriction ;
               owl:onProperty skos:inScheme ;
               owl:hasValue <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso>
             ]
-        ) ;
-        rdf:type owl:Class
+        )
     ] ;
     rdfs:comment "Relationship that assigns a primary use to a property or construction. Use concepts are defined in the external SKOS vocabulary at http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso."@en ;
     rdfs:comment "Relación que asigna un uso principal a un inmueble o construcción. Los conceptos de uso se definen en el vocabulario SKOS externo en http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/uso."@es .
@@ -353,7 +353,7 @@ edintcat:participation
     rdfs:label "participación"@es ;
     rdfs:domain edintcat:CadastralProperty ;
     rdfs:range xsd:decimal ;
-    qudt:applicableUnit qudtunit:PCT ;
+    qudt:unit qudtunit:PCT ;
     rdfs:comment "Percentage of participation in common elements of the property."@en ;
     rdfs:comment "Porcentaje de participación en elementos comunes del inmueble."@es .
 
@@ -363,7 +363,7 @@ edintcat:supportPercentage
     rdfs:label "porcentaje de soporte"@es ;
     rdfs:domain edintcat:CadastralConstruction ;
     rdfs:range xsd:decimal ;
-    qudt:applicableUnit qudtunit:PCT ;
+    qudt:unit qudtunit:PCT ;
     rdfs:comment "Percentage of the construction area that is considered support area (common elements)."@en ;
     rdfs:comment "Porcentaje del área de construcción que se considera área de soporte (elementos comunes)."@es .
 
