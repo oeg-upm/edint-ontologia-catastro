@@ -10,8 +10,6 @@
 @prefix callejero: <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix qudtunit: <http://qudt.org/vocab/unit/> .
-@prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 
 # =============================================================================
 # ONTOLOGY METADATA
@@ -27,7 +25,7 @@
     dcterms:issued "2026-04-09"^^xsd:date ;
     dcterms:created "2026-04-09"^^xsd:date ;
     dcterms:modified "2026-04-09"^^xsd:date ;
-    dcterms:creator "Daniel Doña"@es ,
+    dcterms:creator "Daniel Doña" ,
                     "Edna Ruckhaus" ,
                     "Lucía Sánchez" ,
                     "Maria del Socorro Bernardos" ,
@@ -166,8 +164,7 @@ edintcat:onCadastralParcel
     rdfs:comment "Relationship indicating that a cadastral property is located on exactly one cadastral parcel."@en ;
     rdfs:comment "Relación que indica que un inmueble catastral está ubicado sobre una única parcela catastral."@es ;
     rdfs:domain edintcat:CadastralProperty ;
-    rdfs:range edintcat:CadastralParcel ;
-    owl:inverseOf edintcat:hasCadastralProperty .
+    rdfs:range edintcat:CadastralParcel .
 
 edintcat:hasCadastralConstruction
     a owl:ObjectProperty ;
@@ -186,8 +183,7 @@ edintcat:onCadastralProperty
     rdfs:comment "Relationship indicating that a cadastral construction is located on a specific cadastral property."@en ;
     rdfs:comment "Relación que indica que una construcción catastral está ubicada sobre un inmueble catastral específico."@es ;
     rdfs:domain edintcat:CadastralConstruction ;
-    rdfs:range edintcat:CadastralProperty ;
-    owl:inverseOf edintcat:hasCadastralConstruction .
+    rdfs:range edintcat:CadastralProperty .
 
 edintcat:hasHorizontalDivision
     a owl:DatatypeProperty ;
@@ -209,8 +205,7 @@ edintcat:hasAddress
     ] ;
     rdfs:range callejero:Portal ;
     rdfs:comment "Relationship linking a property or parcel to its address in the callejero vocabulary. Through this relationship, location information (municipality, province, postal code) can be obtained from the linked callejero:Portal."@en ;
-    rdfs:comment "Relación que vincula un inmueble o parcela con su dirección en el vocabulario callejero. A través de esta relación, se puede obtener información de ubicación (municipio, provincia, código postal) del Portal enlazado."@es ;
-    rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero> .
+    rdfs:comment "Relación que vincula un inmueble o parcela con su dirección en el vocabulario callejero. A través de esta relación, se puede obtener información de ubicación (municipio, provincia, código postal) del Portal enlazado."@es .
 
 
 # --- Use relationship ---
@@ -275,8 +270,7 @@ edintcat:renovationOf
     rdfs:domain edintcat:Renovation ;
     rdfs:range edintcat:CadastralConstruction ;
     rdfs:comment "Relationship indicating that a renovation event applies to a specific construction."@en ;
-    rdfs:comment "Relación que indica que un evento de reforma se aplica a una construcción específica."@es ;
-    owl:inverseOf edintcat:hasRenovation .
+    rdfs:comment "Relación que indica que un evento de reforma se aplica a una construcción específica."@es .
 
 # --- Reference ---
 
@@ -297,8 +291,7 @@ edintcat:parcelReferenceFor
     rdfs:domain edintcat:ParcelReference ;
     rdfs:range edintcat:CadastralParcel ;
     rdfs:comment "Relationship indicating that a parcel reference identifies a specific cadastral parcel."@en ;
-    rdfs:comment "Relación que indica que una referencia de parcela identifica una parcela catastral específica."@es ;
-    owl:inverseOf edintcat:hasParcelReference .
+    rdfs:comment "Relación que indica que una referencia de parcela identifica una parcela catastral específica."@es .
 
 edintcat:hasPropertyReference
     a owl:ObjectProperty ;
@@ -317,9 +310,7 @@ edintcat:propertyReferenceFor
     rdfs:domain edintcat:PropertyReference ;
     rdfs:range edintcat:CadastralProperty ;
     rdfs:comment "Relationship indicating that a property reference identifies a specific cadastral property."@en ;
-    rdfs:comment "Relación que indica que una referencia de inmueble identifica un inmueble catastral específico."@es ;
-    owl:inverseOf edintcat:hasPropertyReference .
-
+rdfs:comment "Relación que indica que una referencia de inmueble identifica un inmueble catastral específico."@es .
 
 # =============================================================================
 # DATA PROPERTIES
