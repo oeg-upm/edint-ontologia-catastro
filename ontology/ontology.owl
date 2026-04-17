@@ -58,8 +58,9 @@ edintcat:CadastralParcel
     rdfs:subClassOf geo:Feature ;
     rdfs:subClassOf [
         a owl:Restriction ;
-        owl:onProperty edintcat:hasCadastralReference ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger
+        owl:onProperty edintcat:hasParcelReference ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass edintcat:ParcelReference
     ] .
 
 edintcat:CadastralProperty
@@ -71,8 +72,15 @@ edintcat:CadastralProperty
     rdfs:subClassOf geo:Feature ;
     rdfs:subClassOf [
         a owl:Restriction ;
-        owl:onProperty edintcat:hasCadastralReference ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger
+        owl:onProperty edintcat:hasPropertyReference ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass edintcat:PropertyReference
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty edintcat:onCadastralParcel ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass edintcat:CadastralParcel
     ] ;
     rdfs:subClassOf [
         a owl:Restriction ;
@@ -84,16 +92,38 @@ edintcat:CadastralReference
     a owl:Class ;
     rdfs:label "Cadastral Reference"@en ;
     rdfs:label "Referencia Catastral"@es ;
-    rdfs:comment "Complete cadastral reference composed of parcel reference and property reference."@en ;
-    rdfs:comment "Referencia catastral completa compuesta por referencia de parcela y referencia de inmueble."@es .
+    rdfs:comment "Abstract parent class for cadastral reference types."@en ;
+    rdfs:comment "Clase padre abstracta para los tipos de referencia catastral."@es .
+
+edintcat:ParcelReference
+    a owl:Class ;
+    rdfs:subClassOf edintcat:CadastralReference ;
+    rdfs:label "Parcel Reference"@en ;
+    rdfs:label "Referencia de Parcela"@es ;
+    rdfs:comment "Reference identifying a cadastral parcel (7-character alphanumeric code)."@en ;
+    rdfs:comment "Referencia que identifica una parcela catastral (código alfanumérico de 7 caracteres)."@es .
+
+edintcat:PropertyReference
+    a owl:Class ;
+    rdfs:subClassOf edintcat:CadastralReference ;
+    rdfs:label "Property Reference"@en ;
+    rdfs:label "Referencia de Inmueble"@es ;
+    rdfs:comment "Reference identifying a cadastral property, composed of the parcel reference and the property reference with check digit (e.g., TF8006N0001HZ)."@en ;
+    rdfs:comment "Referencia que identifica un inmueble catastral, compuesta por la referencia de parcela y la referencia de inmueble con dígito de control (ej. TF8006N0001HZ)."@es .
 
 edintcat:CadastralConstruction
     a owl:Class ;
     rdfs:label "Cadastral Construction"@en ;
     rdfs:label "Construcción Catastral"@es ;
-    rdfs:comment "Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction can be associated with one or more cadastral properties."@en ;
-    rdfs:comment "Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral puede estar asociada a uno o más inmuebles catastrales."@es ;
-    rdfs:subClassOf geo:Feature .
+    rdfs:comment "Building or construction registered on a cadastral property. Includes data on area, use, construction characteristics, and renovations. A cadastral construction is located on exactly one cadastral property."@en ;
+    rdfs:comment "Edificio o construcción registrada sobre un inmueble catastral. Incluye datos de superficie, uso, características constructivas y reformas. Una construcción catastral está ubicada sobre un único inmueble catastral."@es ;
+    rdfs:subClassOf geo:Feature ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty edintcat:onCadastralProperty ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass edintcat:CadastralProperty
+    ] .
 
 # --- Supporting Classes ---
 
@@ -133,8 +163,8 @@ edintcat:onCadastralParcel
     a owl:ObjectProperty ;
     rdfs:label "on cadastral parcel"@en ;
     rdfs:label "sobre parcela catastral"@es ;
-    rdfs:comment "Relationship indicating that a cadastral property is located on a specific cadastral parcel."@en ;
-    rdfs:comment "Relación que indica que un inmueble catastral está ubicado sobre una parcela catastral específica."@es ;
+    rdfs:comment "Relationship indicating that a cadastral property is located on exactly one cadastral parcel."@en ;
+    rdfs:comment "Relación que indica que un inmueble catastral está ubicado sobre una única parcela catastral."@es ;
     rdfs:domain edintcat:CadastralProperty ;
     rdfs:range edintcat:CadastralParcel ;
     owl:inverseOf edintcat:hasCadastralProperty .
@@ -250,17 +280,45 @@ edintcat:renovationOf
 
 # --- Reference ---
 
-edintcat:hasCadastralReference
+edintcat:hasParcelReference
     a owl:ObjectProperty ;
-    rdfs:label "has cadastral reference"@en ;
-    rdfs:label "tiene referencia catastral"@es ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (edintcat:CadastralParcel edintcat:CadastralProperty) ;
-    ] ;
-    rdfs:range edintcat:CadastralReference ;
-    rdfs:comment "Relationship linking a cadastral entity to its complete cadastral reference."@en ;
-    rdfs:comment "Relación que vincula una entidad catastral con su referencia catastral completa."@es .
+    rdfs:label "has parcel reference"@en ;
+    rdfs:label "tiene referencia de parcela"@es ;
+    rdfs:domain edintcat:CadastralParcel ;
+    rdfs:range edintcat:ParcelReference ;
+    rdfs:comment "Relationship linking a cadastral parcel to its parcel reference."@en ;
+    rdfs:comment "Relación que vincula una parcela catastral con su referencia de parcela."@es ;
+    owl:inverseOf edintcat:parcelReferenceFor .
+
+edintcat:parcelReferenceFor
+    a owl:ObjectProperty ;
+    rdfs:label "parcel reference for"@en ;
+    rdfs:label "referencia de parcela para"@es ;
+    rdfs:domain edintcat:ParcelReference ;
+    rdfs:range edintcat:CadastralParcel ;
+    rdfs:comment "Relationship indicating that a parcel reference identifies a specific cadastral parcel."@en ;
+    rdfs:comment "Relación que indica que una referencia de parcela identifica una parcela catastral específica."@es ;
+    owl:inverseOf edintcat:hasParcelReference .
+
+edintcat:hasPropertyReference
+    a owl:ObjectProperty ;
+    rdfs:label "has property reference"@en ;
+    rdfs:label "tiene referencia de inmueble"@es ;
+    rdfs:domain edintcat:CadastralProperty ;
+    rdfs:range edintcat:PropertyReference ;
+    rdfs:comment "Relationship linking a cadastral property to its property reference."@en ;
+    rdfs:comment "Relación que vincula un inmueble catastral con su referencia de inmueble."@es ;
+    owl:inverseOf edintcat:propertyReferenceFor .
+
+edintcat:propertyReferenceFor
+    a owl:ObjectProperty ;
+    rdfs:label "property reference for"@en ;
+    rdfs:label "referencia de inmueble para"@es ;
+    rdfs:domain edintcat:PropertyReference ;
+    rdfs:range edintcat:CadastralProperty ;
+    rdfs:comment "Relationship indicating that a property reference identifies a specific cadastral property."@en ;
+    rdfs:comment "Relación que indica que una referencia de inmueble identifica un inmueble catastral específico."@es ;
+    owl:inverseOf edintcat:hasPropertyReference .
 
 
 # =============================================================================
@@ -273,21 +331,21 @@ edintcat:parcelReference
     a owl:DatatypeProperty ;
     rdfs:label "parcel reference"@en ;
     rdfs:label "referencia de parcela"@es ;
-    rdfs:domain edintcat:CadastralReference ;
+    rdfs:domain edintcat:ParcelReference ;
     rdfs:range xsd:string ;
-    rdfs:comment "The 7-digit parcel reference part. Format: 7 digits (e.g., 0569302)."@en ;
-    rdfs:comment "La parte de 7 dígitos de la referencia de parcela. Formato: 7 dígitos (ej. 0569302)."@es ;
-    rdfs:isDefinedBy <https://www.sedecatastro.gob.es> .
+    rdfs:comment "The 7-character alphanumeric parcel reference code (e.g., 0569302VK)."@en ;
+    rdfs:comment "El código alfanumérico de 7 caracteres de la referencia de parcela (ej. 0569302VK)."@es ;
+    rdfs:seeAlso <https://www.sedecatastro.gob.es> .
 
 edintcat:propertyReference
     a owl:DatatypeProperty ;
     rdfs:label "property reference"@en ;
     rdfs:label "referencia de inmueble"@es ;
-    rdfs:domain edintcat:CadastralReference ;
+    rdfs:domain edintcat:PropertyReference ;
     rdfs:range xsd:string ;
     rdfs:comment "The property reference part including check digit. Format: alphanumeric with check (e.g., TF8006N0001HZ)."@en ;
     rdfs:comment "La parte de referencia de inmueble incluyendo dígito de control. Formato: alfanumérico con control (ej. TF8006N0001HZ)."@es ;
-    rdfs:isDefinedBy <https://www.sedecatastro.gob.es> .
+    rdfs:seeAlso <https://www.sedecatastro.gob.es> .
 
 edintcat:participation
     a owl:DatatypeProperty ;
