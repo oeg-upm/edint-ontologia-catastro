@@ -1,0 +1,124 @@
+prefixes:
+  edintcat: "http://vocab.linkeddata.es/datosabiertos/def/catastro#"
+  callejero: "http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#"
+  edintkos-clase: "http://vocab.linkeddata.es/datosabiertos/kos/edint/clase/"
+  edintkos-uso: "http://vocab.linkeddata.es/datosabiertos/kos/edint/uso/"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+  dct: "http://purl.org/dc/terms/"
+  geo: "http://www.opengis.net/ont/geosparql#"
+  qudt: "http://qudt.org/schema/qudt/"
+  qudtunit: "http://qudt.org/vocab/unit/"
+
+sources:
+  inmuebles: ['inmuebles.csv~csv']
+
+mappings:
+
+  parcela_catastral:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/Parcela_$(parcel_ref)
+    po:
+      - [a, edintcat:CadastralParcel]
+      - [rdfs:label, $(parcel_label)]
+      - [edintcat:hasCadastralProperty, "http://vocab.linkeddata.es/datosabiertos/recurso/Inmueble_$(property_ref)~iri"] # --> edintcat:CadastralProperty
+      - [edintcat:hasCadastralReference, "http://vocab.linkeddata.es/datosabiertos/recurso/referencia-catastral/Ref_Parcela_$(parcel_ref)~iri"] # --> edintcat:CadastralReference
+      - [edintcat:hasAddress, "http://vocab.linkeddata.es/datosabiertos/recurso/portal/$(portal_id)~iri"] # --> callejero:Portal
+      - [dct:source, $(source_url), xsd:anyURI]
+      - [geo:hasGeometry, "http://vocab.linkeddata.es/datosabiertos/recurso/geometria/parcela/$(parcel_ref)~iri"]
+
+  inmueble_catastral:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/Inmueble_$(property_ref)
+    po:
+      - [a, edintcat:CadastralProperty]
+      - [rdfs:label, $(property_label)]
+      - [edintcat:hasAddress, "http://vocab.linkeddata.es/datosabiertos/recurso/portal/$(portal_id)~iri"] # --> callejero:Portal
+      - [edintcat:hasClass, "edintkos-clase:$(clase_propiedad)~iri"] # SKOS clasificacion: Urban, Rural ,BICES
+      - [edintcat:hasUseType, "edintkos-uso:$(tipo_uso_propiedad)~iri"] # SKOS Tipo USO: Residential, Industrial, Offices, Commercial , Cultural
+      - [edintcat:hasCadastralConstruction, "http://vocab.linkeddata.es/datosabiertos/recurso/construccion/$(construction_id)~iri"]  # --> CadastralConstruction
+      - [edintcat:hasCadastralReference, "http://vocab.linkeddata.es/datosabiertos/recurso/referencia-catastral/Ref_Parcela_$(parcel_ref)~iri"] # --> edintcat:CadastralReference
+      - [edintcat:participation, $(participacion), xsd:decimal]
+      - [dct:source, $(source_url), xsd:anyURI]
+
+
+  referencia_catastral: # Referencia catastral
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/referencia-catastral/Ref_Parcela_$(parcel_ref)
+    po:
+      - [a, edintcat:CadastralReference]
+
+
+  construccion_catastral:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/construccion/$(construction_id)
+    po:
+      - [a, edintcat:CadastralConstruction]
+      - [rdfs:label, $(construction_label)]
+      - [edintcat:hasRenovation,"http://vocab.linkeddata.es/datosabiertos/recurso/reforma/$(reforma_id)~iri"] # --> edintcat:Renovation
+      - [edintcat:hasAddress, "http://vocab.linkeddata.es/datosabiertos/recurso/portal/$(portal_id)~iri"] # --> callejero:Portal
+      - [ edintcat:constructionYear, $(anio_construccion), xsd:gYear ]
+      - [ edintcat:staircase, $(escalera) ]
+      - [ edintcat:floor, $(planta) ]
+      - [ edintcat:door, $(puerta) ]
+      - [ edintcat:supportPercentage, $(porcentaje_soporte), xsd:decimal ]
+      - [ geo:hasGeometry, "http://vocab.linkeddata.es/datosabiertos/recurso/geometria/construccion/$(construction_id)~iri" ]
+
+  portal:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/portal/$(portal_id)
+    po:
+      - [a, callejero:Portal]
+      - [callejero:numero, $(portal_numero)]
+      - [callejero:codigoPostal, $(codigo_postal)]
+      - [callejero:municipio, $(municipio)]
+      - [callejero:provincia, $(provincia)]
+
+  reforma:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/reforma/$(reforma_id)
+    po:
+      - [a, edintcat:Renovation]
+      - [rdfs:label, $(reforma_label)]
+
+  geometria_parcela:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/geometria/parcela/$(parcel_ref)
+    po:
+      - [a, geo:Geometry]
+      - [geo:asWKT, $(parcel_wkt), geo:wktLiteral]
+      - [geo:hasSerialization, $(parcel_geometry_serialization)]
+      - [geo:hasArea, "http://vocab.linkeddata.es/datosabiertos/recurso/medida/parcela/$(parcel_ref)~iri"]
+
+  area_parcela:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/medida/parcela/$(parcel_ref)
+    po:
+      - [a, geo:SpatialMeasure]
+      - [geo:measureAmount, $(parcel_area), xsd:double]
+      - [qudt:unit, qudtunit:M2]
+
+  geometria_construccion:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/geometria/construccion/$(construction_id)
+    po:
+      - [ a, geo:Geometry ]
+      - [ geo:hasArea, "http://vocab.linkeddata.es/datosabiertos/recurso/medida/construccion/$(construction_id)~iri" ]
+
+  area_construccion:
+    sources:
+      - inmuebles
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/medida/construccion/$(construction_id)
+    po:
+      - [ a, geo:SpatialMeasure ]
+      - [ geo:measureAmount, $(construction_area), xsd:double ]
+      - [ qudt:unit, qudtunit:M2 ]
