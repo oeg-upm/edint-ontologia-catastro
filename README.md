@@ -14,7 +14,7 @@ El prefijo de esta ontología es `edintcat`. Se publica en el espacio de nombres
 
 # Modelo conceptual (Ontology conceptualization)
 
-![Diagrama del modelo conceptual](diagrams/diagrama.png)
+![Diagrama del modelo conceptual](diagrams/diagram.png)
 
 # Estructura del repositorio (Repository structure)
 
