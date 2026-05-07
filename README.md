@@ -4,11 +4,11 @@ Esta ontología permite representar el dominio del Catastro Inmobiliario Españo
 
 Está siendo desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es/)).
 
-# Propósito y alcance de la ontología
+# Propósito y alcance de la ontología (Purpose and scope of the ontology)
 
 El propósito de esta ontología es modelar las entidades y relaciones fundamentales del Catastro Inmobiliario Español para habilitar la interoperabilidad de datos catastrales en el contexto de los datos enlazados (Linked Data). El alcance se limita a parcelas catastrales, inmuebles catastrales, construcciones catastrales, referencias catastrales, direcciones, usos y clasificaciones, y geometrías y áreas. Quedan fuera del alcance aspectos como titularidad de bienes, valoración catastral, datos de transmisiones y procesos administrativos.
 
-# Prefijo y espacio de nombres
+# Prefijo y espacio de nombres (Prefix and namespace)
 
 El prefijo de esta ontología es `edintcat`. Se publica en el espacio de nombres: http://vocab.linkeddata.es/datosabiertos/def/catastro/
 
