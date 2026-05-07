@@ -31,7 +31,7 @@ El prefijo de esta ontología es `edintcat`. Se publica en el espacio de nombres
 
 # Mantenimiento y evolución (Maintenance and evolution)
 
-Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guía proporcionadas en ([Issues Management](https://github.com/telefonicasc/edint-ontologia-zonaregulatoria/wiki/issues-management)) para generar una indicencia (trabajo en progreso).
+Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guías proporcionadas en ([Issues Management](./ISSUES.md)) para generar una incidencia.
 
 # Financiación (Funding)
 
